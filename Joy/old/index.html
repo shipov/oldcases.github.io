@@ -1,0 +1,2808 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Joycontact</title>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link rel="icon" type="image/png" sizes="64x64" href="img/favicon.png" />
+<meta name="title" content="Joycontact" />
+<meta name="description" content="Joycontact - омниканальный чат-сервис" />
+<meta name="keywords" content="мессенджер, общение, приятное общение, сообщения, чаты, каналы, друзья, контакты, переписка, написать другу, создать канал, читать, новости, стикеры, бесплатные стикеры, живые стикеры, знаменитости, одноклассники сообщения, общение с семьей, общение с друзьями"/>
+<meta name="author" content="Broadband" />
+<meta name="robots" content="index,follow" />
+<meta name="yandex-verification" content="" />
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Material+Icons" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.2/css/responsive.bootstrap4.css"/>
+<link rel="stylesheet" type="text/css" href="css/floating.action.buttons.css">
+<link rel="stylesheet" type="text/css" href="css/scroll.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+<div id="login_block">
+<div id="box" class="group">
+<ul class="tab group">
+<li>Регистрация</li>
+<li class="active">Вход</li>
+</ul>
+<div class="tabbox">
+<form>
+<input type="email" name="email" value="" id="email" placeholder="E-mail*" required />
+<p class="reg_inputError">Такой почтовый ящик уже используется.<br /> <a href="">Восстановить пароль?</a></p>
+<input type="tel" name="phone" value="" id="phone" class="phone" placeholder="+7 (___) ___-__-__*" required />
+<br><br><center>
+
+</center>
+<button id="register_but">Зарегистрироваться</button>
+<p class="reg_subtitle">Регистрируя новый аккаунт, вы принимаете условия <a href="">пользовательского соглашения.</a></p>
+</form>
+</div>
+<div class="tabbox visible">
+<form>
+<p class="log_inputError">Неправильный E-mail и/или пароль</p>
+<input type="email" name="login" id="account" value="" placeholder="E-mail*" required />
+<input type="password" name="password" id="password" placeholder="Пароль*" value="" class="mb-3" required />
+<div class="remember mt-2">
+
+<input type="checkbox" class="custom-control-input" id="cfirst" name="first">
+      <label class="custom-control-label cfirst" for="cfirst">Запомнить меня</label>
+ </div>
+<div class="restore"><a href="#log_password" class="log_link">Не помню пароль</a></div>
+<button id="login_but">Вход без пароля</button>
+</form>
+</div>
+</div>
+<div class="log_box" id="log_password">
+<h3>Восстановление пароля</h3>
+<p>Введите ваш e-mail или телефон, указанный при регистрации. Новый пароль придет вам на почту.</p>
+<form action="" class="log_passwordForm">
+<input type="email" name="email" placeholder="E-mail или номер телефона" required />
+<button type="button" class="btn btn_themeDarkBlue saveButton">Восстановить</button>
+</form>
+<a href="#box" class="log_passwordLink log_link">Вспомнил пароль</a>
+</div>
+<div class="log_box" id="log_error">
+<h3>Сообщение об ошибке</h3>
+<p>Используйте форму для отправки нам сообщений об ошибке.</p>
+<form action="" class="log_errorForm">
+<input type="name" name="name" placeholder="Имя*" required />
+<input type="email" name="email" placeholder="E-mail*" required />
+<textarea name="message" placeholder="Сообщение об ошибке"></textarea>
+<button type="button" class="btn btn_themeDarkBlue saveButton">Отправить</button>
+</form>
+</div>
+<div class="log_box log_register" id="log_register">
+<h3>Благодарим вас<br /> за регистрацию</h3>
+<p>Пароль для входа отправлен на указанный e-mail. Если письмо с паролем не доставлено, проверьте папку «спам» или воспользуйтесь формой <a href="#log_error" class="log_link">«Сообщить об ошибке».</a></p>
+<p>Через <strong>15</strong> секунд вы автоматически вернетесь на страницу входа или нажмите на кнопку «Войти».</p>
+<button type="button" class="btn btn_themeDarkBlue">Войти</button>
+</div>
+<div class="log_box log_send" id="log_send">
+<h3>Ваше сообщение<br /> было отправлено</h3>
+<p>Мы обязательно решим вашу проблему. В ближайшее время на вашу почту поступит ответ с решением проблемы.</p>
+<p>Спасибо что помогаете нам стать лучше!</p>
+<button type="button" class="btn btn_themeDarkBlue">Войти</button>
+</div>
+</div>
+<section id="top_block">
+<div class="top_block">
+<div class="top_block__section0 open">
+<i class="material-icons">menu</i>
+</div> 
+<div class="top_block__section1">
+<img class="smlogo" src="img/smlogo.svg" width="22">
+<img class="smpic" src="img/svg/msmlogo.svg" width="45">
+<a href="/"><img class="logo" src="img/svg/logo.svg" width="150" height="auto"></a>
+</div>
+<div class="top_block__section3">
+<div class="dropdown">
+<div class="admin_button1" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<i class="material-icons">person</i></div>
+<div id="operator_status" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+<a class="dropdown-item" href="#"><span class="operator-online"></span>В сети</a>
+<a class="dropdown-item" href="#"><span class="operator-offline"></span>Не в сети</a>
+<a class="dropdown-item" href="#"><span class="operator-waiting"></span>В ожидании</a>
+</div>
+</div>
+<div class="admin_button2"><i class="material-icons">open_in_new</i></div>
+<div class="collapse-panel-left"><i class="material-icons">more_vert</i></div>
+</div>
+</div>
+</section>
+<div id="mainContainer">
+<section id="left_chat_menu">
+<div class="left_chat_menu">
+<ul>
+<li class="left-menu_item" id="messagesMenu" divId="baseContainer">
+<a href="#baseContainer" title="Все сообщения"><i class="material-icons">chat</i><span class="d1">беседы</span></a></li>
+
+<li class="left-menu_item" id="operatorsMenu" divId="operatorContainer">
+<a href="#operatorContainer" title="Операторы"><i class="material-icons">record_voice_over</i><span class="d1">операторы</span></a></li>
+
+<li class="left-menu_item" id="statisticsMenu" divId="statContainer">
+<a href="#statContainer" title="Статистика"><i class="material-icons">equalizer</i><span class="d1">статистика</span></a></li>
+
+<li class="left-menu_item" id="settingsMenu" divId="settingsContainer">
+<a href="#settingsContainer" title="Настройки"><i class="material-icons">settings</i><span class="d1">настройки</span></a></li>
+
+<li class="left-menu_item" id="helpMenu" divId="helpContainer">
+<a href="#helpContainer" title="Помощь"><i class="material-icons">error_outline</i><span class="d1">инфо</span></a></li>
+
+<li class="left-menu_item" id="publicationMenu">
+<a href="#" title="Публикации"><i class="material-icons">library_books</i><span class="d1">публикации</span></a></li>
+
+</ul>
+
+<div class="project">проекты</div>
+<ul class="project_list">
+<div class="project_item" id="project_item"><p class="project_item_border">75</p><i class="material-icons">stars</i><span class="d1">BROADBAND</span></div>
+<div class="project_item" id="project_item"><p class="project_item_border">320</p><i class="material-icons">stars</i><span class="d1">SEVEN-SKY</span></div>
+</ul>
+</div>
+</section>
+<div class="mainContainer help-Container" id="helpContainer">
+<div class="overlay"></div>
+<div class="container mt-4 pr-5">
+
+<h2>Техподдержка</h2>
+<p class="zametka">
+Joy Contact — это сервис, который позволяет вам принимать заказы, наладить поддержку и рассылать уведомления клиентам через популярные мессенджеры.
+</p>
+<div class="row">
+<div class="col-md-6">
+<div class="row pt-3 pb-3 full_info">
+<div class="col-md-2"><i class="material-icons flight_takeoff">flight_takeoff</i></div>
+<div class="col-md-10">
+<ul>
+	<li><h5>Быстрый старт</h5></li>
+	<li><a href="#">Установка чата</a></li>
+	<li><a href="#">Настройка подключения</a></li>
+	<li><a href="#">Установка виджета</a></li>
+	<li><a href="#">Интеграция с системами</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-6 mobmargintime">
+<div class="row pt-3 pb-3 full_info">
+<div class="col-md-2"><i class="material-icons settings">settings</i></div>
+<div class="col-md-10">
+<ul>
+	<li><h5>Настройка виджета</h5></li>
+	<li><a href="#">Форма обратной связи для сайта от JoyContact</a></li>
+	<li><a href="#">Как изменить настройки уведомлений</a></li>
+	<li><a href="#">Изменение цвета виджета</a></li>
+	<li><a href="#">Добавление нового сайта в личном кабинете</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="row mt-4">
+<div class="col-md-6">
+<div class="row pt-3 pb-3 full_info">
+<div class="col-md-2"><i class="material-icons question_answer">question_answer</i></div>
+<div class="col-md-10">
+<ul>
+	<li><h5>Функции чата</h5></li>
+	<li><a href="#">Включение функции запроса согласия на обработку персональных данных</a></li>
+	<li><a href="#">Настройка функции "Заказать обратный звонок"</a></li>
+	<li><a href="#">Подключение функции приема платежей</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-6 mobmargintime">
+<div class="row pt-3 pb-3 full_info">
+<div class="col-md-2"><i class="material-icons supervisor_account">supervisor_account</i></div>
+<div class="col-md-10">
+<ul>
+	<li><h5>Работа с пользователями</h5></li>
+	<li><a href="#">Как добавить оператора на сайт или канал?</a></li>
+	<li><a href="#">Как изменить настройки учетной записи</a></li>
+	<li><a href="#">Создание группоого чата с операторами</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="row mt-4">
+<div class="col-md-6">
+<div class="row pt-3 pb-3 full_info">
+<div class="col-md-2"><i class="material-icons settings_input_composite">settings_input_composite</i></div>
+<div class="col-md-10">
+<ul>
+	<li><h5>Подключение коннекторов</h5></li>
+	<li><a href="#">Интеграция с «Вконтакте»</a></li>
+	<li><a href="#">Подключение к «Viber»</a></li>
+	<li><a href="#">Подключение к «Watsapp»</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-6 mobmargintime">
+<div class="row pt-3 pb-3 full_info">
+<div class="col-md-2"><i class="material-icons android">android</i></div>
+<div class="col-md-10">
+<ul>
+	<li><h5>Работа с чат-ботом</h5></li>
+	<li><a href="#">Настройка работы чат-бота</a></li>
+	<li><a href="#">Расписание работы</a></li>
+	<li><a href="#">Создание сценария для бота</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="row mt-4">
+<div class="col-md-6">
+<div class="row pt-3 pb-3 full_info">
+<div class="col-md-2"><i class="material-icons smartphone">smartphone</i></div>
+<div class="col-md-10">
+<ul>
+	<li><h5>Работа приложения</h5></li>
+	<li><a href="#">Настройка приложения</a></li>
+	<li><a href="#">Настройка приложения</a></li>
+	<li><a href="#">Тарифы</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-6 mobmargintime">
+<div class="row pt-3 pb-3 full_info">
+<div class="col-md-2"><i class="material-icons folder">folder</i></div>
+<div class="col-md-10">
+<ul>
+	<li><h5>Документы</h5></li>
+	<li><a href="#">Лицензионный договор-оферта</a></li>
+	<li><a href="#">Пользовательское соглашение</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p class="zametka mt-4">
+Не нашли решение? Напишите нам.
+</p>
+<button type="button" class="helpButton mt-3">Написать в поддержку</button>
+
+</div>
+
+</div>
+
+<div class="mainContainer active" id="baseContainer">
+<div class="overlay"></div>
+<div class="user_menu">
+
+<div class="dropdown">
+<div id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<div class="search">
+<input type="text" name="search" placeholder="ПОИСК">
+<div class="filtr"><img src="img/svg/search.svg" width="15"></div>
+</div></div>
+<div id="search_item" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+<a class="dropdown-item" href="#">Активные</a>
+<a class="dropdown-item" href="#">Неактивные</a>
+<a class="dropdown-item" href="#">Закрытые</a>
+<a class="dropdown-item" href="#">Избранные</a>
+<hr>
+<label>
+<span class="label" lang="date"></span>
+<span class="label-date" lang="dateFrom"><p>с:</p> <input type="text" placeholder="01 июня 2018" name="date" class="tcal tcal_01" value="" /><i class="material-icons date_range">date_range</i></span>
+<span class="label-date" lang="dateTo"><p>по:</p> <input type="text" placeholder="02 июня 2018" name="date" class="tcal tcal_02" value="" /><i class="material-icons date_range">date_range</i></span>
+</label>
+<hr>
+<a class="dropdown-item project_filter" href="#">BroadBend</a>
+<a class="dropdown-item project_filter" href="#">Seven-Sky</a>
+<div class="twobtn">
+<span id="menu-filter_reset"><i class="material-icons">replay</i></span>
+<span id="menu-filter_apply"><i class="material-icons">done</i></span>
+</div>
+</div>
+</div>
+
+<ul>
+<li>
+<span class="user_menu__avatar__name">
+<div class="user_menu__avatar">
+	<i class="material-icons">person</i>
+</div>
+<span class="user_menu__name">Андрей Триждыорденакрасногознамени</span>
+<span class="user_menu__msg"><i class="material-icons title">title</i><p class="clip">Что бы вы хотели узнать о нашем сервисе...</p></span>
+</span>
+<div class="user_menu__social_icon">
+<img src="img/svg/vk.svg" width="15" height="15">
+<img src="img/svg/whatsapp.svg" width="15" height="15"> 
+<img src="img/svg/gmail.svg" width="15" height="15"> 
+<div class="left_menu__star"><i class="material-icons">grade</i>
+	<div class="left_menu__time">12d 3h 50m</div>
+</div>
+<div class="dropdown">
+	<div class="admin_button4 user_menu__settings" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		<i class="material-icons">settings</i></div>
+		<div id="operator_item" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			<a class="dropdown-item" href="#">Выключить звук</a>
+			<a class="dropdown-item" href="#">Выключить уведомления</a>
+			<a class="dropdown-item" href="#">Добавить в избранное</a>
+			<a class="dropdown-item" href="#">Завершить диалог</a>
+			<a class="dropdown-item" href="#">Заблокировать</a>
+		</div>
+	</div>
+</div>				
+</li>
+<li>
+<span class="user_menu__avatar__name">
+	<div class="user_menu__avatar">
+		<i class="material-icons">person</i>
+	</div>
+	<span class="user_menu__name">Сергей Сергеевич</span>
+	<span class="user_menu__msg"><i class="material-icons photo">photo</i></span>
+</span>
+<div class="user_menu__social_icon">
+	<img src="img/svg/vk.svg" width="15" height="15">
+	<img src="img/svg/whatsapp.svg" width="15" height="15"> 
+	<img src="img/svg/gmail.svg" width="15" height="15"> 
+	<div class="left_menu__star"><i class="material-icons">grade</i>
+		<div class="left_menu__time">12d 3h 50m</div>
+	</div>
+	<div class="dropdown">
+		<div class="admin_button4 user_menu__settings" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<i class="material-icons">settings</i></div>
+			<div id="operator_item" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				<a class="dropdown-item" href="#">Выключить звук</a>
+				<a class="dropdown-item" href="#">Выключить уведомления</a>
+				<a class="dropdown-item" href="#">Добавить в избранное</a>
+				<a class="dropdown-item" href="#">Завершить диалог</a>
+				<a class="dropdown-item" href="#">Заблокировать</a>
+			</div>
+		</div>
+	</div>				
+</li>
+
+
+<li>
+		<span class="user_menu__avatar__name">
+			<div class="user_menu__avatar">
+				<i class="material-icons">person</i>
+			</div>
+			<span class="user_menu__name">Оператор</span>
+			<span class="user_menu__msg"><i class="material-icons gps_fixed">gps_fixed</i><p class="clip">55.679159, 37.644001</p></span>
+		</span>
+		<div class="user_menu__social_icon">
+			<img src="img/svg/vk.svg" width="15" height="15">
+			<img src="img/svg/whatsapp.svg" width="15" height="15"> 
+			<img src="img/svg/gmail.svg" width="15" height="15"> 
+			<div class="left_menu__star"><i class="material-icons">grade</i>
+				<div class="left_menu__time">12d 3h 50m</div>
+			</div>
+			<div class="dropdown">
+				<div class="admin_button4 user_menu__settings" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<i class="material-icons">settings</i></div>
+					<div id="operator_item" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a class="dropdown-item" href="#">Выключить звук</a>
+						<a class="dropdown-item" href="#">Выключить уведомления</a>
+						<a class="dropdown-item" href="#">Добавить в избранное</a>
+						<a class="dropdown-item" href="#">Завершить диалог</a>
+						<a class="dropdown-item" href="#">Заблокировать</a>
+					</div>
+				</div>
+			</div>				
+		</li>
+		<li>
+		<span class="user_menu__avatar__name">
+			<div class="user_menu__avatar">
+				<i class="material-icons">person</i>
+			</div>
+			<span class="user_menu__name">Оператор</span>
+			<span class="user_menu__msg"><i class="material-icons link">link</i><p class="clip">http://redesign.joycontact.ru/index.html#settingsContainer</p></span>
+		</span>
+		<div class="user_menu__social_icon">
+			<img src="img/svg/vk.svg" width="15" height="15">
+			<img src="img/svg/whatsapp.svg" width="15" height="15"> 
+			<img src="img/svg/gmail.svg" width="15" height="15"> 
+			<div class="left_menu__star"><i class="material-icons">grade</i>
+				<div class="left_menu__time">12d 3h 50m</div>
+			</div>
+			<div class="dropdown">
+				<div class="admin_button4 user_menu__settings" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<i class="material-icons">settings</i></div>
+					<div id="operator_item" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a class="dropdown-item" href="#">Выключить звук</a>
+						<a class="dropdown-item" href="#">Выключить уведомления</a>
+						<a class="dropdown-item" href="#">Добавить в избранное</a>
+						<a class="dropdown-item" href="#">Завершить диалог</a>
+						<a class="dropdown-item" href="#">Заблокировать</a>
+					</div>
+				</div>
+			</div>				
+		</li>
+		<li>
+		<span class="user_menu__avatar__name">
+			<div class="user_menu__avatar">
+				<i class="material-icons">person</i>
+			</div>
+			<span class="user_menu__name">Оператор</span>
+			<span class="user_menu__msg"><i class="material-icons video">play_circle_filled</i><p class="clip">https://www.youtube.com/watch?time_continue=3&v=KgMpKsp23yY</p></span>
+		</span>
+		<div class="user_menu__social_icon">
+			<img src="img/svg/vk.svg" width="15" height="15">
+			<img src="img/svg/whatsapp.svg" width="15" height="15"> 
+			<img src="img/svg/gmail.svg" width="15" height="15"> 
+			<div class="left_menu__star"><i class="material-icons">grade</i>
+				<div class="left_menu__time">12d 3h 50m</div>
+			</div>
+			<div class="dropdown">
+				<div class="admin_button4 user_menu__settings" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<i class="material-icons">settings</i></div>
+					<div id="operator_item" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a class="dropdown-item" href="#">Выключить звук</a>
+						<a class="dropdown-item" href="#">Выключить уведомления</a>
+						<a class="dropdown-item" href="#">Добавить в избранное</a>
+						<a class="dropdown-item" href="#">Завершить диалог</a>
+						<a class="dropdown-item" href="#">Заблокировать</a>
+					</div>
+				</div>
+			</div>				
+		</li>
+		<li>
+	<span class="user_menu__avatar__name">
+		<div class="user_menu__avatar">
+			<i class="material-icons">person</i>
+		</div>
+		<span class="user_menu__name">Оператор</span>
+		<span class="user_menu__msg"><i class="material-icons record_voice_over">record_voice_over</i></span>
+	</span>
+	<div class="user_menu__social_icon">
+		<img src="img/svg/vk.svg" width="15" height="15">
+		<img src="img/svg/whatsapp.svg" width="15" height="15"> 
+		<img src="img/svg/gmail.svg" width="15" height="15"> 
+		<div class="left_menu__star"><i class="material-icons">grade</i>
+			<div class="left_menu__time">12d 3h 50m</div>
+		</div>
+		<div class="dropdown">
+			<div class="admin_button4 user_menu__settings" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<i class="material-icons">settings</i></div>
+				<div id="operator_item" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item" href="#">Выключить звук</a>
+					<a class="dropdown-item" href="#">Выключить уведомления</a>
+					<a class="dropdown-item" href="#">Добавить в избранное</a>
+					<a class="dropdown-item" href="#">Завершить диалог</a>
+					<a class="dropdown-item" href="#">Заблокировать</a>
+				</div>
+			</div>
+		</div>				
+	</li>
+	<li>
+		<span class="user_menu__avatar__name">
+			<div class="user_menu__avatar">
+				<i class="material-icons">person</i>
+			</div>
+			<span class="user_menu__name">Оператор</span>
+			<span class="user_menu__msg"><i class="material-icons file_copy">file_copy</i></span>
+		</span>
+		<div class="user_menu__social_icon">
+			<img src="img/svg/vk.svg" width="15" height="15">
+			<img src="img/svg/whatsapp.svg" width="15" height="15"> 
+			<img src="img/svg/gmail.svg" width="15" height="15"> 
+			<div class="left_menu__star"><i class="material-icons">grade</i>
+				<div class="left_menu__time">12d 3h 50m</div>
+			</div>
+			<div class="dropdown">
+				<div class="admin_button4 user_menu__settings" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<i class="material-icons">settings</i></div>
+					<div id="operator_item" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a class="dropdown-item" href="#">Выключить звук</a>
+						<a class="dropdown-item" href="#">Выключить уведомления</a>
+						<a class="dropdown-item" href="#">Добавить в избранное</a>
+						<a class="dropdown-item" href="#">Завершить диалог</a>
+						<a class="dropdown-item" href="#">Заблокировать</a>
+					</div>
+				</div>
+			</div>				
+		</li>
+	</ul>
+</div>
+
+<div class="client_menu"></div>
+
+<div class="main_wrapper" id="main_wrapper">
+
+	<div class="top_user_menu">
+		<div class="top_user_menu__block1">
+			<div class="top_user_menu__block1__avatar">
+				<i class="material-icons">person</i>
+			</div>
+			<span class="top_user_menu__block1__avatar__name">Оператор #2</span>
+		</div>
+		<div class="top_user_menu__block2">
+			<span class="poisk" title="Поиск по чату"><form id="search-input"><input type="search"></form></span>
+			<span class="mic"></span>
+			<span title="Выгрузить чат"><a href="#"><i class="material-icons">cloud_download</i></a></span>
+			<span title="Передать чат другому оператору">
+				<div class="dropdown">
+					<div class="admin_button3" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="material-icons">reply</i></div>
+						<div id="operator_action_forward" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" href="#">Оператор #1 <i class="material-icons">add_box</i></a>
+							<a class="dropdown-item" href="#">Оператор #2 <i class="material-icons">add_box</i></a>
+						</div>
+					</div>
+				</span>
+				<span title="Добавить собеседника">
+					<div class="dropdown">
+						<div class="admin_button3" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<i class="material-icons">add_to_photos</i></div>
+							<div id="operator_action" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a class="dropdown-item" href="#">Оператор #3 <i class="material-icons">add_box</i></a>
+								<a class="dropdown-item" href="#">Оператор #4 <i class="material-icons">add_box</i></a>
+							</div>
+						</div>
+					</span>
+					<span title="Закрыть диалог"><i class="material-icons add_box">add_box</i></span>
+
+				</div>
+			</div>
+
+
+			<div id="msg" class="interviewee">
+				<div class="message start">Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые модификации.
+					<span class="status message_date">14.45.05</span>
+					<div class="interviewee_avatar rounded-circle"></div>
+				</div>
+			</div>
+			<div id="msg" class="interviewee">
+				<div class="message main">Есть много вариантов Lorem Ipsum.
+					<span class="status message_date">14.45.06</span>
+				</div>
+			</div>
+			<div id="msg" class="interviewee">
+				<div class="message finish">Есть много вариантов Lorem Ipsum, но большинство из них.
+					<span class="status message_date">14.45.07</span>
+				</div>
+			</div>
+
+
+			<div id="msg" class="reporter">
+				<div class="message start">Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые модификации.
+					<span class="status message_date">14.45.05</span>
+					<div class="reporter_avatar rounded-circle"></div>
+				</div>
+			</div>
+			<div id="msg" class="reporter">
+				<div class="message finish">Есть много вариантов Lorem Ipsum, но большинство из них.
+					<span class="status message_date">14.45.05</span>
+				</div>
+			</div>
+			<div class="infoChat" id="msg"><p>5 декабря</p></div>
+
+			<div id="msg" class="interviewee">
+				<div class="message start">Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые модификации.
+					<span class="status message_date">14.45.08</span>
+					<div class="interviewee_avatar rounded-circle"></div>
+				</div>
+			</div>
+			<div id="msg" class="interviewee">
+				<div class="message finish">Есть много вариантов Lorem Ipsum, но большинство из них.
+					<span class="status message_date">14.45.07</span>
+				</div>
+			</div>
+
+			<div id="msg" class="interviewee reporter_img">
+				<div class="message imgClip">
+					<span class="message_img">
+						<a href="img/bee.jpg" target="_blank"><img src="img/bee.jpg"></a>
+						<span class="status message_date picture">14.45.05</span>
+					</span>
+				</div>
+			</div>
+
+			<div class="infoChat" id="msg"><p>6 декабря</p></div>
+
+			<div id="msg" class="reporter">
+				<div class="message start">Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые модификации.
+					<span class="status message_date">14.45.05</span>
+					<div class="reporter_avatar rounded-circle"></div>
+				</div>
+			</div>
+			<div id="msg" class="reporter">
+				<div class="message finish">Есть много вариантов Lorem Ipsum, но большинство из них.
+					<span class="status message_date">14.45.05</span>
+				</div>
+			</div>
+
+			<div id="msg" class="interviewee">
+				<div class="message start">Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые модификации.
+					<span class="status message_date">14.45.05</span>
+					<div class="interviewee_avatar rounded-circle"></div>
+				</div>
+			</div>
+			<div id="msg" class="interviewee">
+				<div class="message finish">Есть много вариантов Lorem Ipsum.
+					<span class="status message_date">14.45.06</span>
+				</div>
+			</div>
+
+			<div class="infoChat" id="msg"><p>7 декабря</p></div>
+
+			<div id="msg" class="reporter">
+				<div class="message start">Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые модификации.
+					<span class="status message_date">14.45.05</span>
+					<div class="reporter_avatar rounded-circle"></div>
+				</div>
+			</div>
+			<div id="msg" class="reporter">
+				<div class="message finish">Есть много вариантов Lorem Ipsum, но большинство из них.
+					<span class="status message_date">14.45.05</span>
+				</div>
+			</div>
+
+			<div id="msg" class="reporter reporter_img">
+				<div class="message imgClip">
+					<span class="message_img">
+						<a href="img/pic.jpg" target="_blank"><img src="img/pic.jpg"></a>
+						<span class="status message_date picture">14.45.05</span>
+					</span>
+				</div>
+			</div>
+
+			<textarea class="form-control" id="validationTextarea" placeholder="Введите сообщение" required></textarea>
+			<div class="chat_icon">
+				<span><i class="material-icons">cloud_upload</i></span>
+				<span><i class="material-icons">insert_emoticon</i></span>
+				<span class="send"><i class="material-icons">send</i></span>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="mainContainer" id="operatorContainer">
+		<div class="overlay"></div>
+
+		<div class="user_menu">
+			<div class="dropdown">
+				<div id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<div class="search">
+						<input type="text" name="search" placeholder="ПОИСК">
+						<div class="filtr"><img src="img/svg/search.svg" width="15"></div>
+					</div></div>
+					<div id="search_item" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a class="dropdown-item" href="#">Активные</a>
+						<a class="dropdown-item" href="#">Неактивные</a>
+						<a class="dropdown-item" href="#">Закрытые</a>
+						<a class="dropdown-item" href="#">Избранные</a>
+						<hr>
+						<label>
+							<span class="label" lang="date"></span>
+							<span class="label-date" lang="dateFrom"><p>с:</p> <input type="text" placeholder="01 июня 2018" name="date" class="tcal tcal_01" value="" /></span>
+							<span class="label-date" lang="dateTo"><p>по:</p> <input type="text" placeholder="02 июня 2018" name="date" class="tcal tcal_02" value="" /></span>
+						</label>
+						<hr>
+						<a class="dropdown-item" href="#">BroadBend</a>
+						<a class="dropdown-item" href="#">Seven-Sky</a>
+						<div class="twobtn">
+							<span id="menu-filter_reset"><i class="material-icons">replay</i></span>
+							<span id="menu-filter_apply"><i class="material-icons">done</i></span>
+						</div>
+					</div>
+				</div>
+				<ul>
+					<li>
+						<span class="user_menu__avatar__name">
+							<div class="user_menu__avatar">
+								<i class="material-icons">person</i>
+							</div>
+							Оператор
+						</span>
+						<div class="user_menu__social_icon">
+							<div class="operator_menu__time">12d 3h 50m</div>
+							<div class="dropdown">
+								<div class="admin_button4 user_menu__settings" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<i class="material-icons">settings</i></div>
+									<div id="operator_item" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+										<a class="dropdown-item" href="#">Выключить звук</a>
+										<a class="dropdown-item" href="#">Выключить уведомления</a>
+										<a class="dropdown-item" href="#">Добавить в избранное</a>
+										<a class="dropdown-item" href="#">Завершить диалог</a>
+										<a class="dropdown-item" href="#">Заблокировать</a>
+									</div>
+								</div>
+							</div>				
+						</li>
+
+					</ul>
+				</div>
+				<div class="main_wrapper">
+					<div class="top_user_menu">
+						<div class="top_user_menu__block1">
+							<div class="top_user_menu__block1__avatar">
+								<i class="material-icons">person</i>
+							</div>
+							<span class="top_user_menu__block1__avatar__name">Оператор #2</span>
+						</div>
+						<div class="top_user_menu__block2">
+						</div>
+					</div>
+
+					<div id="msg" class="interviewee">
+						<div class="message start">Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые модификации.
+							<span class="status message_date">14.45.05</span>
+							<div class="interviewee_avatar rounded-circle"></div>
+						</div>
+					</div>
+					<div id="msg" class="interviewee">
+						<div class="message main">Есть много вариантов Lorem Ipsum.
+							<span class="status message_date">14.45.06</span>
+						</div>
+					</div>
+					<div id="msg" class="interviewee">
+						<div class="message finish">Есть много вариантов Lorem Ipsum, но большинство из них.
+							<span class="status message_date">14.45.07</span>
+						</div>
+					</div>
+
+
+					<div class="infoChat" id="msg"><p>7 декабря</p></div>
+
+					<div id="msg" class="reporter">
+						<div class="message start">Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые модификации.
+							<span class="status message_date">14.45.05</span>
+							<div class="reporter_avatar rounded-circle"></div>
+						</div>
+					</div>
+					<div id="msg" class="reporter">
+						<div class="message finish">Есть много вариантов Lorem Ipsum, но большинство из них.
+							<span class="status message_date">14.45.05</span>
+						</div>
+					</div>
+
+					<div class="message_chat">
+						<textarea class="form-control" id="validationTextarea" placeholder="Введите сообщение" required></textarea>
+						<div class="chat_icon">
+							<span><i class="material-icons">cloud_upload</i></span>
+							<span><i class="material-icons">insert_emoticon</i></span>
+							<span class="send"><i class="material-icons">send</i></span>
+						</div>
+					</div>
+
+				</div>
+			</div>						
+
+
+			<!-- ----- настройки ----- -->
+			<div class="mainContainer" id="settingsContainer">
+				<div class="overlay"></div>
+
+				<div class="setting_wrapper">
+
+					<div class="setting-page d-flex">
+
+						<div class="setting-menu">
+
+							<div class="wrp_all">
+								<div class="wrp"></div>
+								<div class="setting-menu_wrapper">
+
+									<h3 class="setting-head"><img src="img/seticon.svg" width="20">&nbsp;&nbsp;&nbsp;Настройки аккаунта</h3>
+									<ul class="setting-menu_list settingHead-menu_list">
+										<li class="setting-project_item" divName="settings-general"><i class="material-icons">settings</i><a href="#">Основные</a></li>
+										<li class="setting-project_item" divName="settings-users"><i class="material-icons">people</i><a href="#">Пользователи</a></li>
+										<li class="setting-project_item" divName="settings-projects"><i class="material-icons">business_center</i><a href="#">Проекты</a></li>						
+										<li class="setting-project_item" divName="settings-templates"><i class="material-icons">collections_bookmark</i><a href="#">Шаблоны</a></li>
+									</ul>
+
+									<h3 class="setting-head"><img src="img/seticon.svg" width="20">&nbsp;&nbsp;&nbsp;Настройки проектов</h3>
+									<ul class="setting-menu_list setting-menu_projectList">
+
+
+										<div class="accordion" id="accordionExample1">
+											<li class="setting-menu_projectItem setting-menu_project_active"><a href="" class="setting-menu_projectItemLink" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+												<span class="setting-menu_projectIcon"><img src="img/op3.png" alt=""></span><span>Проект №1</span><i class="material-icons expand_more">expand_more</i></a>
+
+												<ul id="collapseOne" class="collapse show" data-parent="#accordionExample">
+													<li class="setting-project_item project_submenu" divname="settings-project"><a href="#settings-general">Общие</a></li>
+													<li class="setting-project_item project_submenu" divname="settings-widget"><a href="#settings-widget">Виджет</a></li>
+													<li class="setting-project_item project_submenu" divname="settings-sources"><a href="#settings-sources">Источники</a></li>
+													<li class="setting-project_item project_submenu" divname="settings-chatBot"><a href="#settings-chatBot">Чат-бот</a></li>
+
+
+												</ul>
+											</li>
+										</div>
+										<div class="accordion" id="accordionExample2">
+											<li class="setting-menu_projectItem setting-menu_project_active"><a href="" class="setting-menu_projectItemLink" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+												<span class="setting-menu_projectIcon"><img src="img/op3.png" alt=""></span><span>Проект №1</span><i class="material-icons expand_more">expand_more</i></a>
+
+												<ul id="collapseTwo" class="collapse show" data-parent="#accordionExample2">
+													<li class="setting-project_item project_submenu" divname="settings-project"><a href="#settings-general">Общие</a></li>
+													<li class="setting-project_item project_submenu" divname="settings-widget"><a href="#settings-widget">Виджет</a></li>
+													<li class="setting-project_item project_submenu" divname="settings-sources"><a href="#settings-sources">Источники</a></li>
+													<li class="setting-project_item project_submenu" divname="settings-chatBot"><a href="#settings-chatBot">Чат-бот</a></li>
+
+
+												</ul>
+											</li>
+										</div>
+									</ul>
+								</div>
+							</div> 
+						</div>
+
+						<!-- ----- Общие ----- -->
+						<div class="settings-general settings-container pb-5 active" id="settings-general">
+
+							<div class="settings-window">
+								<form action="" class="adminSettings settingsList flex_column">
+
+									<div class="container">
+
+										<div class="row">
+											<div class="col-md-6 col-12 mb-4 d-flex align-items-center justify-content-between">			
+												<div class="settings-general_avatarIcon"><h3>Оператор</h3></div>
+												<label for="userSettingsPhoto" class="file_upload btn_themeDarkBlue">Загрузить</label>
+											</div>
+											<div class="col-md-6 col-12"></div>
+											<div class="col-md-6 col-12">
+												<p>Контактное лицо</p>
+												<label class="adminSettings_item settings_item flex_row"><input type="text" id="contactName"></label>
+											</div>
+											<div class="col-md-6 col-12"></div>
+											<div class="col-md-6 col-12">
+												<p>Контактный телефон</p>
+												<label class="adminSettings_item settings_item flex_row"><input type="phone" class="phone" id="contactPhone"></label>
+											</div>
+											<div class="col-md-6 col-12"></div>
+											<div class="col-md-6 col-12">
+												<p>Контактный email</p>
+												<label class="adminSettings_item settings_item flex_row"><input type="email" id="contactEmail"></label>
+											</div>
+											<div class="col-md-6 col-12"></div>
+											<div class="col-md-6 col-12">
+												<p>Изменение пароля</p>
+												<label class="adminSettings_item settings_item flex_row"><input type="password" id="userSettingsPass" placeholder="Введите новый"></label>
+											</div>
+											<div class="col-md-6 col-12"></div>
+											<div class="col-md-6 col-12">
+												<p>Повторение пароля</p>
+												<label class="adminSettings_item settings_item flex_row"><input type="password" id="userSettingsPass2" placeholder="Введите новый"></label>
+											</div>
+											<div class="col-md-12 mb-4" style="height: 45px;">
+												<label for="adminSettings_jur" class="contcheck checkbox_type adminSettings_adressEq"><p class="dop1">Юридическое лицо</p><input  type="checkbox" name="" value="" class="checkboxSq stat_checkboxSq" id="adminSettings_jur"><span class="checkmark"></span></label>
+											</div>
+
+											<div class="col-md-6 col-12">
+												<p>Договор №</p>
+												<label class="adminSettings_item settings_item flex_row"><input type="text" id=""></label>
+											</div>
+											<div class="col-md-6 col-12">
+												<p>Название</p>
+												<label class="adminSettings_item settings_item flex_row"><input type="text" id="companyName"></label>
+											</div>
+
+
+											<div class="col-md-12  col-12 mt-4 mb-3">
+												<div class="row adress_button nav" role="tablist">
+													
+													<ul class="nav col-md-12 justify-content-end" role="tablist">
+														<li class="col-md-3 col-12 justify-content-start d-flex">
+															<h3>Адреса:</h3>
+														</li>
+														<li class="col-md-3 col-sm-4 col-12 nav-item">
+															<a href="#adress_jur" class="adminSettings_jurLinks nav-link active" data-toggle="pill">Юридический</a>
+														</li>
+														<li class="col-md-3 col-sm-4 col-12 nav-item">
+															<a href="#adress_phis" class="adminSettings_jurLinks nav-link" data-toggle="pill">Физический</a>
+														</li>
+														<li class="col-md-3 col-sm-4 col-12 mbottom nav-item">
+															<a href="#adress_mail" class="adminSettings_jurLinks nav-link" data-toggle="pill">Почтовый</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="tab-content">
+											<div class="row tab-pane active" id="adress_jur">
+												<div class="col-md-6 col-12"><p>Индекс</p><label class="adminSettings_item settings_item flex_row"><input type="number" id="adress_jurIndex" min="0"></label></div>
+												<div class="col-md-6 col-12"><p>Город</p><label class="adminSettings_item settings_item flex_row"><input type="text" id="adress_jurCity"></label></div>
+												<div class="col-md-6 col-12"><p>Улица</p><label class="adminSettings_item settings_item flex_row"><input type="text" id="adress_jurStreet"></label></div>
+												<div class="col-md-6 col-12"><p>Дом</p><label class="adminSettings_item settings_item flex_row"><input type="text" id="adress_jurNumber"></label></div>
+												<div class="col-md-6 col-12"><p>Корпус</p><label class="adminSettings_item settings_item flex_row"><input type="text" id="adress_jurHousing"></label></div>
+												<div class="col-md-6 col-12"><p>Строение</p><label class="adminSettings_item settings_item flex_row"><input type="text" id="adress_jurBuild"></label></div>
+												<div class="col-md-6 col-12"><p>Помещение</p><label class="adminSettings_item settings_item flex_row"><input type="text" id="adress_jurRoom"></label></div>
+											</div>
+											<div class="row tab-pane fade" id="adress_phis">
+												<div class="col-md-6 col-12"><p>Индекс</p><label class="adminSettings_item settings_item flex_row"><input type="number" class="input" id="adress_phisIndex" min="0"></label></div>
+												<div class="col-md-6 col-12"><p>Город</p><label class="adminSettings_item settings_item flex_row"><input type="text" class="input" id="adress_phisCity"></label></div>
+												<div class="col-md-6 col-12"><p>Улица</p><label class="adminSettings_item settings_item flex_row"><input type="text" class="input" id="adress_phisStreet"></label></div>
+												<div class="col-md-6 col-12"><p>Дом</p><label class="adminSettings_item settings_item flex_row"><input type="text" class="input" id="adress_phisNumber"></label></div>
+												<div class="col-md-6 col-12"><p>Корпус</p><label class="adminSettings_item settings_item flex_row"><input type="text" class="input" id="adress_phisHousing"></label></div>
+												<div class="col-md-6 col-12"><p>Строение</p><label class="adminSettings_item settings_item flex_row"><input type="text" class="input" id="adress_phisBuild"></label></div>
+												<div class="col-md-6 col-12"><p>Помещение</p><label class="adminSettings_item settings_item flex_row"><input type="text" class="input" id="adress_phisRoom"></label></div>
+												<div class="col-md-12 mb-4" style="height: 45px;">
+													<label for="adminSettings_phisJur" class="contcheck checkbox_type adminSettings_adressEq">
+														<span class="dop">Совпадает<br> с юридическим адресом</span>
+														<input  type="checkbox" name="" value="" class="checkboxSq stat_checkboxSq" id="adminSettings_phisJur">
+														<span class="checkmark"></span>													
+													</label>
+												</div>
+											</div>
+
+											<div class="row tab-pane fade" id="adress_mail">
+												<div class="col-md-6 col-12"><p>Индекс</p><label class="adminSettings_item settings_item flex_row"><input type="number" class="input" id="adress_mailIndex" min="0"></label></div>
+												<div class="col-md-6 col-12"><p>Город</p><label class="adminSettings_item settings_item flex_row"><input type="text" class="input" id="adress_mailCity"></label></div>
+												<div class="col-md-6 col-12"><p>Улица</p><label class="adminSettings_item settings_item flex_row"><input type="text" class="input" id="adress_mailStreet"></label></div>
+												<div class="col-md-6 col-12"><p>Дом</p><label class="adminSettings_item settings_item flex_row"><input type="text" class="input" id="adress_mailNumber"></label></div>
+												<div class="col-md-6 col-12"><p>Корпус</p><label class="adminSettings_item settings_item flex_row"><input type="text" class="input" id="adress_mailHousing"></label></div>
+												<div class="col-md-6 col-12"><p>Строение</p><label class="adminSettings_item settings_item flex_row"><input type="text" class="input" id="adress_mailBuild"></label></div>
+												<div class="col-md-6 col-12"><p>Помещение</p><label class="adminSettings_item settings_item flex_row"><input type="text" class="input" id="adress_mailRoom"></label></div>
+												<div class="col-md-12 mb-4" style="height: 45px;">
+													<label for="adminSettings_mailAdress" class="contcheck checkbox_type adminSettings_adressEq">
+														<span class="dop">Совпадает<br> с юридическим адресом</span>
+														<input  type="checkbox" name="" value="" class="checkboxSq stat_checkboxSq" id="adminSettings_mailAdress">
+														<span class="checkmark"></span>													
+													</label>
+												</div>
+												<div class="col-md-12">
+												<p>Комментарий</p>
+												<span class="adminSettings_item settings_item flex_row"><textarea class="textarea textarea_noRes form-control"></textarea></span>
+											</div>
+											<div class="col-md-12  col-12">
+												<h3>Реквизиты:</h3>
+											</div>	
+											<div class="col-md-6 col-12"><p>ИНН</p><label class="adminSettings_item settings_item flex_row"><input type="number" id="tax_number" min="0"></label></div>
+											<div class="col-md-6 col-12"><p>Рассчетный счет</p><label class="adminSettings_item settings_item flex_row"><input type="text" id="bank_account"></label></div>
+											<div class="col-md-6 col-12"><p>Банк</p><label class="adminSettings_item settings_item flex_row"><input type="text" id="bank"></label></div>
+											<div class="col-md-6 col-12"><p>БИК</p><label class="adminSettings_item settings_item flex_row"><input type="text" id="bank_id"></label></div>
+											<div class="col-md-6 col-12"><p>Корреспондентский счет</p><label class="adminSettings_item settings_item flex_row"><input type="text" id="bank_corr_account"></label></div>
+											<div class="col-md-6 col-12"><p>КПП</p><label class="adminSettings_item settings_item flex_row"><input type="text" id="bank_kpp"></label></div>
+										</div>
+
+										</div>
+
+									</div>
+								</form>
+
+								<div class="container">
+									<form action="" class="settings-notifications_list settingsList row">
+										<div class="col-md-12  col-12"><h3>Уведомления:</h3></div>
+										<div class="col-md-6 col-12"><p>Звуковые уведомления</p><label for="checkbox_soundNotific" class="switch checkbox_trigger">
+											<input type="checkbox" name="" value="" class="checkbox_blue" id="checkbox_soundNotific"><span class="slider round"></span></label></div>
+											<div class="col-md-6 col-12"><p>Громкость уведомлений</p><span class="settings-notifications_item settings_item flex_row"><input class="range" type="range" min="0" max="10" step="1" value="5"></span></div>
+
+											<div class="col-md-6 col-12"><p>Звук уведомлений</p><label class="settings-notifications_item settings_item flex_row">
+												<select name="selectSound" class="select-type sWid">
+													<option>Стандартный</option>
+												</select></label></div>
+
+
+												<div class="col-md-6 col-12"><p>Всплывающие уведомления</p><label for="checkbox_notific" class="switch checkbox_trigger"><input  type="checkbox" name="" value="" class="checkbox_blue" id="checkbox_notific">
+													<span class="slider round"></span>												
+												</label></div>
+
+											</form>
+
+											<form action="" class="settingsList row">
+												<div class="col-md-12  col-12"><h3>Дополнительные настройки</h3></div>
+
+												<div class="col-md-6 col-12"><p>Цветовая схема портала</p><label class="adminSettings_item  settings_item flex_row"> 
+													<select name="selectColor" class="select-type sWid">
+														<option>Стандартная</option>
+													</select></label></div>
+
+													<div class="col-md-6 col-12"><p>Размер шрифта</p><label class="adminSettings_item  settings_item flex_row">
+														<select name="selectFontSize" class="select-type sWid">
+															<option>Стандартный</option>
+														</select></label></div>
+
+														<div class="col-md-6 col-12"><p>Превью текста на контакте</p><span class="settings_item flex_row">
+															<label for="checkbox_preview" class="switch checkbox_trigger">
+																<input type="checkbox" name="" value="" class="checkbox_blue" id="checkbox_preview">
+																<span class="slider round"></span>													
+															</label>
+														</span>
+														<span class="settings_item small"><p>Показывать первые слова из последнего сообщения диалога</p></span></div>
+
+														<div class="col-md-6 col-12"><p>Автоматическая загрузка медиа</p><span class="settings_item flex_row">
+															<label for="checkbox_loadMedia" class="switch checkbox_trigger">
+																<input type="checkbox" name="" value="" class="checkbox_blue" id="checkbox_loadMedia">
+																<span class="slider round"></span>													
+															</label></span>
+															<span class="settings_item small"><p>При получении фото-, видео- и других файлов происходит автозагрузка. При слабом интернет-соединении рекомендуется отключить.</p></span>
+														</div>
+
+														<div class="col-md-6 col-12"><p>Комбинация клавиш для блокировки</p><label class="settings_item flex_row"><input type="text" id="blockKeys" class="input_active" placeholder="CTRL + L"></label>
+															<span class="settings_item small"><p>Задайте сочетание клавиш, при нажатии на которые будет заблокировн экран чата. Обратный вход осуществляется с помощью ввода пароля от аккаунта.</p></span>
+														</div>
+														<div class="col-md-6 col-12"><button type="button" class="saveButton">Сохранить</button></div>
+
+													</form>
+
+												</div>
+
+											</div>
+										</div>
+										<!-- ----- Пользователи ----- -->
+										<div class="settings-users settings-container" id="settings-users">
+
+											<h2>Пользователи</h2>
+											<div class="container-fluid mb-4">
+												<div class="flex_btn">
+													<button type="button" class="btn_addTemplate" data-toggle="modal" data-target="#modalUsers"><i class="material-icons">person_add</i>Добавить</button>
+												</div>
+
+												<table class="datatable dt-responsive" style="width:100%">
+													<thead>
+														<tr>
+															<th>Имя</th>
+															<th>Тип</th>
+															<th>E-mail</th>
+															<th>Проекты</th>
+															<th>Автоматическая очередь</th>
+															<th>Статус</th>
+															<th>Активен</th>
+															<th>Действия</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr class="table-hover">
+															<td>User#1</td>
+															<td>Оператор</td>
+															<td>oki1@oki.ru</td>
+															<td>Все</td>
+															<td>Автоматическая</td>
+															<td>online</td>
+															<td>Да</td>
+															<td class="flex_row align-items-center justify-content-center"><span class="icon_edit"></span><span class="icon_delete"></span></td>
+														</tr>
+														<tr class="table-hover">
+															<td>User#2</td>
+															<td>Клиент</td>
+															<td>oki1@oki.ru</td>
+															<td>Все</td>
+															<td>Автоматическая</td>
+															<td>online</td>
+															<td>Да</td>
+															<td class="flex_row align-items-center justify-content-center"><span class="icon_edit"></span><span class="icon_delete"></span></td>
+														</tr>
+														<tr class="table-hover">
+															<td>User#3</td>
+															<td>Супервайзер</td>
+															<td>oki1@oki.ru</td>
+															<td>Все</td>
+															<td>Автоматическая</td>
+															<td>online</td>
+															<td>Да</td>
+															<td class="flex_row align-items-center justify-content-center"><span class="icon_edit"></span><span class="icon_delete"></span></td>
+														</tr>
+														<tr class="table-hover">
+															<td>User#4</td>
+															<td>Оператор</td>
+															<td>oki1@oki.ru</td>
+															<td>Все</td>
+															<td>Автоматическая</td>
+															<td>online</td>
+															<td>Да</td>
+															<td class="flex_row align-items-center justify-content-center"><span class="icon_edit"></span><span class="icon_delete"></span></td>
+														</tr>
+														<tr class="table-hover">
+															<td>User#5</td>
+															<td>Клиент</td>
+															<td>oki1@oki.ru</td>
+															<td>Все</td>
+															<td>Автоматическая</td>
+															<td>online</td>
+															<td>Да</td>
+															<td class="flex_row align-items-center justify-content-center"><span class="icon_edit"></span><span class="icon_delete"></span></td>
+														</tr>
+														<tr class="table-hover">
+															<td>User#6</td>
+															<td>Администратор</td>
+															<td>oki1@oki.ru</td>
+															<td>Все</td>
+															<td>Автоматическая</td>
+															<td>online</td>
+															<td>Да</td>
+															<td class="flex_row align-items-center justify-content-center"><span class="icon_edit"></span><span class="icon_delete"></span></td>
+														</tr>
+													</tbody>
+												</table>
+
+
+											</div>
+
+
+
+										</div>
+										<!-- ----- End Пользователи ----- -->
+										<!-- ----- Проекты ----- -->
+										<div class="settings-projects settings-container" id="settings-projects">
+
+											<h2>Проекты</h2>
+											<div class="container-fluid mt-4">
+												<div class="row">
+													<div class="col-md-8">
+														<div class="row">
+															<div class="col-md-6">
+																<div class="settings-projects_box_half flex_row justify-content-between">
+																	<div class="part1">
+																		<div class="settings-projects_InfoItem flex_row mb-3">
+																			<span class="setting_projectIcon"><img src="img/op4.png" alt=""></span>
+																			<span class="settings-projects_prname"><p>BroadBend</p></span>						
+																		</div>
+																		<div class="settings-projects_InfoItem flex_row">
+																			<i class="material-icons left all">chat</i>
+																			<span class="settings-projects_prname">Всего диалогов</span>
+																			<span class="settings-projects_number"> 30</span>
+																		</div>
+																		<div class="settings-projects_InfoItem flex_row">
+																			<i class="material-icons left complited">chat</i>
+																			<span class="settings-projects_prname">Завершенных</span>
+																			<span class="settings-projects_number"> 30</span>
+																		</div>
+																		<div class="settings-projects_InfoItem flex_row">
+																			<i class="material-icons left missed">chat</i>
+																			<span class="settings-projects_prname">Неотвеченных</span>
+																			<span class="settings-projects_number"> 30</span>
+																		</div>
+																	</div>
+																	<div class="part2">
+																		<div class="settings-projects_icons">
+																			<i class="material-icons">settings</i>
+																			<i class="material-icons">delete</i>
+																			<i class="material-icons">power_settings_new</i>											
+																		</div>
+																		<div class="help_icon flex_column">																			
+																			<i class="material-icons">help_outline</i>				
+																			<i class="material-icons">help_outline</i>
+																			<i class="material-icons">help_outline</i>				
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-6 mobmarginad">
+																<div class="settings-projects_box_half flex_row justify-content-between">
+																	<div class="part1">
+																		<div class="settings-projects_InfoItem flex_row mb-3">
+																			<span class="setting_projectIcon"><img src="img/books.png" alt=""></span>
+																			<span class="settings-projects_prname"><p>SevenSky</p></span>						
+																		</div>
+																		<div class="settings-projects_InfoItem flex_row">
+																			<i class="material-icons left all">chat</i>
+																			<span class="settings-projects_prname">Всего диалогов</span>
+																			<span class="settings-projects_number"> 30</span>
+																		</div>
+																		<div class="settings-projects_InfoItem flex_row">
+																			<i class="material-icons left complited">chat</i>
+																			<span class="settings-projects_prname">Завершенных</span>
+																			<span class="settings-projects_number"> 30</span>
+																		</div>
+																		<div class="settings-projects_InfoItem flex_row">
+																			<i class="material-icons left missed">chat</i>
+																			<span class="settings-projects_prname">Неотвеченных</span>
+																			<span class="settings-projects_number"> 30</span>
+																		</div>
+																	</div>
+																	<div class="part2">
+																		<div class="settings-projects_icons">
+																			<i class="material-icons">settings</i>
+																			<i class="material-icons">delete</i>
+																			<i class="material-icons">power_settings_new</i>											
+																		</div>
+																		<div class="help_icon flex_column">
+																			<i class="material-icons">help_outline</i>				
+																			<i class="material-icons">help_outline</i>
+																			<i class="material-icons">help_outline</i>				
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+
+												</div>
+
+											</div>
+										</div>
+										<!-- ----- End Проекты ----- -->
+										<!-- ----- Шаблоны ----- -->
+										<div class="settings-templates settings-container" id="settings-templates">
+
+											<h2>Настройка Шаблонов</h2>
+											<div class="container-fluid mb-4">
+												<div class="flex_btn">
+													<button type="button" class="btn_addTemplate" data-toggle="modal" data-target="#exampleModalCenter"><i class="material-icons">collections_bookmark</i>Добавить</button>
+												</div>
+
+												<table class="datatable dt-responsive col-10" style="width:100%" >
+													<thead>
+														<tr>
+															<th>Проекты</th>
+															<th>Ответ</th>
+															<th>Команда</th>
+															<th>Действия</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr class="table-hover">
+															<td>
+																<h3 class="shablon">BroadBend</h3>
+																<div class="settings-general_avatarIcon_shablon"></div>			
+															</td>
+															<td>
+																<div class="boxcut"><div><p>Lorem ipsum dolor sit amet, cu ceteros assentior cum. Sea cu verear tincidunt. Ad malorum molestiae persecuti mei.#tarif Lorem ipsum dolor sit amet, cu ceteros assentior cum. Sea cu verear tincidunt. Ad malorum molestiae persecuti mei.#tarifLorem ipsum dolor sit amet, cu ceteros assentior cum. Sea cu verear tincidunt. Ad malorum molestiae persecuti mei.#tarif</p></div>
+															</div>
+														</td>
+														<td>Да</td>
+														<td class="flex_row align-items-center justify-content-center"><span class="icon_edit"></span><span class="icon_delete"></span></td>
+													</tr>
+													<tr class="table-hover">
+														<td>
+															<h3 class="shablon">BroadBend</h3>
+															<div class="settings-general_avatarIcon_shablon"></div>			
+														</td>
+														<td>+7 (007) 777-88-88 / info@info.ru</td>
+														<td>#tarif</td>
+														<td class="flex_row align-items-center justify-content-center"><span class="icon_edit"></span><span class="icon_delete"></span></td>
+													</tr><tr class="table-hover">
+														<td>
+															<h3 class="shablon">BroadBend</h3>
+															<div class="settings-general_avatarIcon_shablon"></div>			
+														</td>
+														<td>Добрый день! Это автоответчик. Пишите сообщение</td>
+														<td>#hello</td>
+														<td class="flex_row align-items-center justify-content-center"><span class="icon_edit"></span><span class="icon_delete"></span></td>
+													</tr><tr class="table-hover">
+														<td>
+															<h3 class="shablon">BroadBend</h3>
+															<div class="settings-general_avatarIcon_shablon"></div>			
+														</td>
+														<td>online</td>
+														<td>#info</td>
+														<td class="flex_row align-items-center justify-content-center"><span class="icon_edit"></span><span class="icon_delete"></span></td>
+													</tr>
+												</tbody>
+											</table>
+
+										</div>
+									</div>
+									<!-- ----- End Шаблоны ----- -->
+
+									<div class="settings-project settings-container" id="settings-project">
+
+
+										<div class="container">
+											<form action="" class="adminSettings settingsList">
+												<div class="row">
+													<div class="col-md-6 col-12 mb-4 d-flex align-items-center justify-content-between">			
+														<div class="settings-general_avatarIcon"><h3>BroadBend</h3></div>
+														<label for="userSettingsPhoto" class="file_upload btn_themeDarkBlue">Загрузить</label>
+													</div>
+													<div class="col-md-6 col-12"></div>
+													<div class="col-md-6 col-12">
+														<p>Имя проекта</p>
+														<label class="adminSettings_item settings_item flex_row"><input type="text" id="contactName"></label>
+														<span class="settings_item small"><p>Например: joycontact.ru. Все поддомены будут автоматически доступны для работы.</p></span>
+													</div>
+													<div class="col-md-6 col-12">
+														<p class="nom">Автозавершение разговора</p>
+														<label class="settings-notifications_item settings_item flex_row">
+															<select name="selectSound" class="select-type sWid">
+																<option>Не завершать</option>
+																<option>1ч.</option>
+																<option>2ч.</option>
+																<option>3ч.</option>
+															</select>
+														</label>
+													</div>
+													<div class="col-md-6 col-12 mt-4 mb-3">
+														<p class="nom">Автоназначение диалогов</p>
+														<label class="settings-notifications_item settings_item flex_row">
+															<select name="selectSound" class="select-type sWid">
+																<option>Не назначать</option>
+																<option>По дольшей неактивности оператора</option>
+																<option>По очереди онлайн оператора</option>
+															</select>
+														</label>
+														<div class="row">
+															<div class="col-md-6 col-12">
+																<span class="settings-project_item flex_row">
+																	<label for="checkbox_superv" class="switch checkbox_trigger">
+																		<p class="dop1">Участие супервизора</p>
+																		<input type="checkbox" name="" value="" class="checkboxSq stat_checkboxSq" id="checkbox_superv">
+																		<span class="slider round"></span>													
+																	</label>
+																</span>
+															</div>
+															<div class="col-md-6 col-12">
+																<span class="settings-project_item flex_row">
+																	<label for="checkbox_admin" class="switch checkbox_trigger">
+																		<p class="dop1">Участие администратора</p>
+																		<input type="checkbox" name="" value="" class="checkboxSq stat_checkboxSq" id="checkbox_admin">
+																		<span class="slider round"></span>													
+																	</label>
+																</span>
+															</div>						
+														</div>
+													</div>
+													<div class="col-md-6 col-12 mt-4">
+														<p class="nom">Долгий ответ</p>
+														<label class="settings-notifications_item settings_item flex_row">
+															<select name="selectSound" class="select-type sWid">
+																<option>Не уведомлять</option>
+																<option>10мин.</option>
+																<option>30мин.</option>
+																<option>1ч.</option>
+																<option>2ч.</option>
+															</select>
+														</label>
+														<div class="row">
+															<div class="col-md-6 col-12">							
+																<label class="settings-project_item flex_row">
+																	<label for="checkbox_group" class="switch checkbox_trigger">
+																		<p class="dop1">Групповые разговоры</p>
+																		<input type="checkbox" name="" value="" class="checkboxSq stat_checkboxSq" id="checkbox_group">
+																		<span class="slider round"></span>													
+																	</label>
+																</label>
+															</div>
+														</div>
+													</div>				
+													<div class="col-md-6 col-12 mt-4">					
+														<label class="settings-notifications_item settings_item flex_row">
+															<label for="checkbox_hello" class="switch checkbox_trigger">
+																<input type="checkbox" name="" value="" class="checkboxSq stat_checkboxSq" id="checkbox_hello">
+																<span class="slider round"></span>
+																<p class="ml-5">Автоматическое приветствие</p>													
+															</label>
+														</label>
+														<label class="settings-notifications_item settings_item flex_row">
+															<textarea class="textarea textarea_noRes form-control" id="textarea_avtoprivet"></textarea>
+														</label>
+													</div>
+													<div class="col-md-6 col-12"></div>			
+													<div class="col-md-6 col-12 mt-4">					
+														<label class="settings-notifications_item settings_item flex_row">
+															<label for="checkbox_oper" class="switch checkbox_trigger">
+																<input type="checkbox" name="" value="" class="checkboxSq stat_checkboxSq" id="checkbox_oper">
+																<span class="slider round"></span>	
+																<p class="ml-5">Оценка работы оператора</p>												
+															</label>
+														</label>
+														<label class="settings-notifications_item settings_item flex_row">
+															<textarea class="textarea textarea_noRes form-control" id="textarea_ocenka"></textarea>
+														</label>
+													</div>				
+													<div class="col-md-6 col-12"></div>
+													<div class="col-md-6 col-12 mt-4 mb-5">
+														<button type="button" class="saveButton">Сохранить</button>
+													</div>
+												</form>
+											</div>
+
+										</div>
+									</div>
+
+
+									<div class="settings-widget settings-container" id="settings-widget">
+										<h2>Настройка Мессенджеров</h2>
+
+										<div class="container-fluid mt-4 pl-5">
+											<div class="row">
+												<div class="col-md-6">
+													<div class="accordion mb-5" id="accordionExample">
+														<div class="card">
+															<div class="card-header show" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+																<h5 class="mb-0">
+																	<span class="btn btn-link" >Цвета</span>
+																</h5>
+																<i class="material-icons">more_horiz</i>
+															</div>
+
+															<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+																<div class="card-body">
+																	<div class="row" id="color_change">
+																		<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 flex_row align-items-center"><input class="jscolor" value="6A3DF7"><p class="color">Фон заголовка</p></div>
+																		<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 flex_row align-items-center"><input class="jscolor" value="ffffff"><p class="color">Текст заголовка</p></div>
+																		<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 flex_row align-items-center"><input class="jscolor" value="FF9800"><p class="color">Цвет кнопки</p></div>
+																		<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 flex_row align-items-center"><input class="jscolor" value="ffffff"><p class="color">Фон сообщений</p></div>
+																		<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 flex_row align-items-center"><input class="jscolor" value="465C7D"><p class="color">Текст сообщений</p></div>
+																		<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 flex_row align-items-center"><input class="jscolor" value="00D9C5"><p class="color">Цвет иконки</p></div>
+																		<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 flex_row align-items-center"><input class="jscolor" value="D0D9F2"><p class="color">Цвет бота</p></div>
+																		<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-6 flex_row align-items-center"><input class="jscolor" value="6A3DF7"><p class="color">Кнопка закрытия</p></div>
+																	</div>
+
+																	<div class="row d-flex justify-content-end">									
+																		<span class="reset">Сбросить<i class="material-icons">sync</i></span>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="card">
+															<div class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+																<h5 class="mb-0">
+																	<span class="btn btn-link collapsed">Шрифт</span>
+																</h5>
+																<i class="material-icons">more_horiz</i>      
+															</div>
+															<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+																<div class="pt-3">
+																	<div class="row">
+																		<div class="col-md-6 nopad5">
+																			<p class="font">Выбрать шрифт</p>
+																			<label class="settings-notifications_item settings_item flex_row">
+																				<select class="select-type">
+																					<option>Roboto</option>
+																					<option>Arial</option>
+																					<option>Helvetica</option>    						
+																				</select>
+																			</label>
+																		</div>
+																		<div class="col-md-6 align-items-center nopad5">
+																			<p class="font">Размер</p>
+																			<label class="settings-notifications_item settings_item flex_row">
+																				<select class="select-type">
+																					<option>14px</option>
+																					<option>12px</option>
+																					<option>10px</option>
+																				</select>
+																			</label>
+																		</div>
+																	</div>
+																	<div class="row">
+																		<div class="col-md-6 align-items-center nopad5 mb-3">
+																			<p class="font">Тип шрифта</p>
+																			<label class="settings-notifications_item settings_item flex_row">
+																				<select class="select-type">
+																					<option>Normal</option>
+																					<option>Light</option>
+																					<option>Bold</option>
+																				</select>
+																			</label>
+																		</div>
+																		<div class="col-md-6 mb-3 nopad5">
+
+																		</div>
+																	</div>
+
+																</div>
+															</div>
+														</div>
+														<div class="card">
+															<div class="card-header" id="headingThree" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+																<h5 class="mb-0">
+																	<span class="btn btn-link collapsed">Положение</span>
+																</h5>
+																<i class="material-icons">more_horiz</i>
+															</div>
+															<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+
+																<p class="mt-3 ustanovka">Выберите область, в которой будет находиться виджет на вашем сайте.  Для точной настройки задайте отступы.</p>
+
+																<div class="row flex-column">
+																	<div class="row flex-row">
+																		<div class="col-md-9 col-9 d-flex align-items-center nopad5">
+																			<input type="text" id="your_site" placeholder="your site://">
+																		</div>
+																		<div class="col-md-3 col-3"><button type="submit" value="" class="load">Загрузить</button></div>									
+																	</div>
+																	<div class="position mb-5">
+																		<div><span></span><span></span><span></span></div>
+																		<div><span></span><span class="target"><img src="img/svg/target.svg" width="30"><p>открыть в новом окне</p></span><span></span></div>
+																		<div><span></span><span></span><span></span></div>
+																	</div>
+																	<h2>Настройка Мессенджеров</h2>
+																	<div class="row position-number">
+																		<div class="col-md-3 col-12"><p>Сверху</p><input type="number" id="msg_top" min="0" placeholder="0px"></label></div>
+																		<div class="col-md-3 col-12"><p>Справа</p><input type="number" id="msg_right" min="0" placeholder="0px"></label></div>
+																		<div class="col-md-3 col-12"><p>Снизу</p><input type="number" id="msg_bottom" min="0" placeholder="0px"></label></div>
+																		<div class="col-md-3 col-12 mb-4"><p>Слева</p><input type="number" id="msg_left" min="0" placeholder="0px"></label></div>
+
+																	</div>
+																	<div class="row position-number mt-2">
+																		<div class="col-md-6">
+																			<label><p>Ориентация виджета</p>
+																				<select name="orientation" class="select-orientation">
+																					<option>Горизонтальное</option>
+																					<option>Вертикальное</option>
+																				</select>
+																			</label>
+																		</div>
+																		<div class="col-md-6">
+																			<label><p>Размер виджета</p>
+																				<select name="size" class="select-size">
+																					<option>Средний</option>
+																					<option>Большой</option>
+																					<option>Маленький</option>
+																				</select>
+																			</label>
+																		</div>
+																	</div>
+																</div>
+
+
+															</div>
+															<div id="code-widget">
+																<h2 class="settings-title mt-3">Установка кода виджета на сайт</h2>
+																<p class="ustanovka">Для работы виджета на сайте, вам необходимо установить данный код на каждую страницу вашего сайта перед закрывающим тегом или отправить этот текст вашему веб-мастеру.</p>
+																<textarea class="form-control" id="code-widget_textarea">
+																	<script type="text/javascript">var iframe = document.createElement("iframe");iframe.id = "joyframe";iframe.src = "http://dev.joycontact.ru/chat-iframe.html?rnd="+Math.random()+"&projectId=47p991b6af270e615b3d55ef7f3dc712862&connectors=%5B%5D&location=%5B%22%D0%A1%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D1%8B%D0%B9%22,%22%D0%A1%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D0%B0%D1%8F%22,%22%D0%A1%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D1%8B%D0%B9%22,%22%D0%A1%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D0%B0%D1%8F%22,%22%D0%A1%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D1%8B%D0%B9%22,%221%22,%224%22,%221%22,%22bottom-right%22,%22%D0%92%D1%8B%D0%B1%D1%80%D0%B0%D1%82%D1%8C%22,%22%D0%92%D1%8B%D0%B1%D1%80%D0%B0%D1%82%D1%8C%22,%22%D0%92%D1%8B%D0%B1%D1%80%D0%B0%D1%82%D1%8C%22,%22vertical%22,%22vertical%22,%22middle%22%5D";    document.body.appendChild(iframe);    document.write("<style>#joyframe {border: none;box-shadow: 0 6px 16px rgba(0,0,0,0.16);border-radius: 10px 10px 0 0;position: fixed !important;padding: 0 !important;margin: auto !important;left: auto !important;right: auto !important;width: 100% !important;height: 100% !important;max-width: 100% !important;min-width: 100% !important;min-height: 0 !important;max-height: 100% !important;display: block !important;top: 0 !important;bottom: 0 !important;}</style>");</script>
+																</textarea>
+																<span class="copy">Скопировать</span>
+																<br>
+																<h2 class="mt-10">Настройка Коннекторов</h2>
+																<p class="ustanovka">Настройка отображения мессенжеров непосредственно на виджете: управление коннекторами, определение порядка отображения и удаление. Нажмите на иконки подключенных каналов, чтобы добавить их в виджет. Если вы хотите завести новый канал, нажмите кнопку «Добавить».</p>
+																<button type="button" class="btn_addTemplate mt-2"><i class="material-icons">share</i>Добавить</button>
+																<h2>Зарегистрированные коннекторы</h2>
+
+																<table class="datatable dt-responsive" style="width:100%">
+																	<thead>
+																		<tr>
+																			<th>Название</th>
+																			<th>Канал</th>
+																			<th>Статус</th>											
+																			<th>Действия</th>
+																		</tr>
+																	</thead>
+																	<tbody>
+																		<tr class="table-hover">
+																			<td>Коннектор#1</td>
+																			<td><span class="connectors-templates_icon_fb"></span></td>
+																			<td><span class="connectors-templates_icon_status_green"></span></td>
+																			<td class="flex_row align-items-center justify-content-center"><span class="icon_edit"></span><span class="icon_delete"></span></td>
+																		</tr>
+																	</tbody>
+																</table>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-4 col-sm-12 col-12 mobalign mb-2">
+													<div class="widget" id="widget">
+														<div class="widget_header flex_row">
+															<div class="widget_header_avatar">
+																<img src="img/op1.png" width="38">
+																<div class="widget_header_name">
+																	<p>Имя Оператор</p>
+																	<p class="widget_header_position">Консультант</p>
+																</div>
+															</div>
+
+															<div class="widget_header_icon">
+																<i class="material-icons">menu</i>
+															</div>
+														</div>
+														<div class="widget_body">
+															<span class="widget_body_header_close"><i class="material-icons">more_vert</i></span>
+															<div class="widget_body_header">
+																<p class="welcome">Для улучшения качества обслуживания оставьте ваши контактные данные</p>										
+																<form>	
+																	<div class="flex_row justify-content-center">
+																		<div class="winput1"><input type="" name="" placeholder="Имя"></div>
+																		<div class="winput2"><input type="" name="" placeholder="Телефон" class="phone"></div>		
+																	</div>
+																	<div class="flex_row">
+																		<div class="winput3 d-flex justify-content-center"><input type="" name="" placeholder="E-mail"></div>
+																		<button type="submit" class="chat_send"><i class="material-icons">play_arrow</i></button>
+																	</div>
+																</form>
+															</div>
+															<div class="chat_msg_wrapper">
+																<div class="chat_msg_date">22.02.2019</div>
+																<div class="chat_msg string">	
+																	<div class="chat_msg_window">																	
+																		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+																	</div>
+																	<div class="chat_msg_avatar">
+																		<span class="chat_msg_window_name">Оператор</span>
+																		<img src="img/op1.png" width="37">			
+																	</div>
+																</div>
+																<div class="chat_msg_client string">	
+																	<div class="chat_msg_window_client">
+																		<p>Lorem ipsum dolor sit amet. </p>
+																	</div>
+																	<div class="chat_msg_time">
+																		<p>12:05</p>
+																	</div>
+																</div>
+																<div class="chat_msg_date">21.02.2019</div>
+																<div class="chat_msg string">	
+																	<div class="chat_msg_window">																	
+																		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+																	</div>
+																	<div class="chat_msg_avatar">
+																		<span class="chat_msg_window_name">Оператор</span>
+																		<img src="img/op1.png" width="37">			
+																	</div>
+																</div>
+																<div class="chat_msg_client string">	
+																	<div class="chat_msg_window_client">
+																		<p>Lorem ipsum dolor sit amet. </p>
+																	</div>
+																	<div class="chat_msg_time">
+																		<p>12:05</p>
+																	</div>
+																</div>															
+																<div class="chat_msg_client string">	
+																	<div class="chat_msg_window_empty">
+																		<img src="img/svg/smile.svg" width="30" height="30">
+																	</div>
+																	<div class="chat_msg_time">
+																		<p>12:05</p>
+																	</div>
+																</div>
+																<div class="chat_msg_date">22.02.2019</div>
+																<div class="chat_msg string">	
+																	<div class="chat_msg_window_empty">																	
+																		<img src="img/svg/devil.svg" width="30" height="30">
+																	</div>													
+																	<div class="chat_msg_avatar">
+																		<span class="chat_msg_window_name">Оператор</span>
+																		<img src="img/op1.png" width="37">			
+																	</div>
+																</div>
+																<div class="chat_msg_date">22.02.2019</div>
+																<div class="chat_msg string">	
+																	<div class="chat_msg_window">
+																		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+																	</div>
+																	<div class="chat_msg_avatar">
+																		<span class="chat_msg_window_name">Оператор</span>
+																		<img src="img/op1.png" width="37">			
+																	</div>
+																</div>
+																<div class="chat_msg_client string">	
+																	<div class="chat_msg_window_client">
+																		<p>Lorem ipsum dolor sit amet. </p>
+																	</div>
+																	<div class="chat_msg_time">
+																		<p>12:05</p>
+																	</div>
+																</div>
+																<div class="chat_msg_date">21.02.2019</div>
+																<div class="chat_msg string">	
+																	<div class="chat_msg_window">																	
+																		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+																	</div>
+																	<div class="chat_msg_avatar">
+																		<span class="chat_msg_window_name">Оператор</span>
+																		<img src="img/op1.png" width="37">			
+																	</div>
+																</div>
+																<div class="chat_msg_client string">	
+																	<div class="chat_msg_window_client">
+																		<p>Lorem ipsum dolor sit amet. </p>
+																	</div>
+																	<div class="chat_msg_time">
+																		<p>12:05</p>
+																	</div>
+																</div>															
+																<div class="chat_msg_client string">	
+																	<div class="chat_msg_window_empty">
+																		<a href="img/bee.jpg" target="_blank"><img src="img/bee.jpg" class="chat_img_loaded"></a>
+																	</div>
+																	<div class="chat_msg_time">
+																		<p>12:05</p>
+																	</div>
+																</div>
+																<div class="chat_msg_date">22.02.2019</div>
+																<div class="chat_msg string">	
+																	<div class="chat_msg_window_empty">	
+																	<iframe src="https://player.vimeo.com/video/64539322?title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+																		<!-- <iframe  src="https://www.youtube.com/embed/KgMpKsp23yY" frameborder="0" allow=" autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+																	</div>													
+																	<div class="chat_msg_avatar">
+																		<span class="chat_msg_window_name">Оператор</span>
+																		<img src="img/op1.png" width="37">			
+																	</div>
+																</div>
+
+																<div class="chat_msg_client string">	
+																	<div class="chat_msg_window_empty">
+																		<span class="load_file"><img src="img/svg/file.svg" class="chat_img_loaded">
+																			<span class="file_info d-flex flex-column">
+																				<span class="file_name"><p>Doc1.docx</p></span>
+																				<span class="file_size d-flex flex-row"><p>700KB</p><a href="img/svg/file.svg" target="_blank"><p>Скачать</p></a></span>
+																			</span>
+
+																		</span>
+																	</div>
+																	<div class="chat_msg_time">
+																		<p>12:05</p>
+																	</div>
+																</div>
+
+															</div>
+														</div>
+														<div class="widget_footer">
+															<div class="widget_icon">
+																<i class="dopicon material-icons">cloud_upload</i>
+																<i class="dopicon material-icons">insert_emoticon</i>
+																<span class="widget_send"><i class="material-icons">send</i></span>
+															</div>
+															<textarea class="form-control" id="widgetTextarea" placeholder="Введите сообщение" required=""></textarea>
+															<span>Работает на платформе <span><img src="img/svg/jcsm.svg" width="20">JoyContact</span></span>
+														</div>
+													</div>
+													<div class="obertka">
+														<nav class="float-action-button"> 
+															<a href="#" class="buttons" data-toggle="tooltip" data-placement="left" title="Whatsapp"></a>
+															<a href="#" class="buttons" data-toggle="tooltip" data-placement="left" title="Skype"></a>
+															<a href="#" class="buttons" data-toggle="tooltip" data-placement="left" title="Vkontakte"></a>
+															<a href="#" class="buttons" data-toggle="tooltip" data-placement="left" title="Gmail"></a>
+															<a href="#" class="buttons" data-toggle="tooltip" data-placement="left" title="Telegram"></a>
+															<a href="#" class="buttons" data-toggle="tooltip" data-placement="left" title="Facebook"></a>
+															<a href="#" class="buttons wow " data-toggle="tooltip" data-placement="left" title="Выберите канал связи"></a>
+														</nav>
+													</div>
+
+												</div>
+											</div>
+
+										</div>
+
+									</div>
+									<div class="settings-sources settings-container" id="settings-sources">
+
+										<h2>Настройка Источников</h2>
+										<div class="container-fluid mb-5">
+											<div class="flex_btn">
+												<button type="button" class="btn_addTemplate">+ Добавить</button>
+											</div>
+											<table class="datatable dt-responsive col-10" style="width:100%" >
+												<thead>
+													<tr>
+														<th>Канал</th>
+														<th>Название</th>
+														<th>Статус</th>
+														<th>Действия</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr class="table-hover">
+														<td>
+															<h3 class="shablon soc_hide">Vkontakte</h3>
+															<span class="settings-sources_icon_vk"></span>		
+														</td>
+														<td>Канал Vkontakte</td>
+														<td>
+															<label for="checkbox_soc_vk" class="switch checkbox_trigger">
+																<input type="checkbox" name="" value="" class="checkboxSq stat_checkboxSq" id="checkbox_soc_vk">
+																<span class="slider_soc round"></span>													
+															</label>
+														</td>
+														<td class="flex_row align-items-center justify-content-center"><span class="icon_edit"></span><span class="icon_delete"></span></td>
+													</tr>
+													<tr class="table-hover">
+														<td>
+															<h3 class="shablon soc_hide">Facebook</h3>
+															<span class="settings-sources_icon_fb"></span>			
+														</td>
+														<td>Канал Facebook</td>
+														<td>
+															<label for="checkbox_soc_fb" class="switch checkbox_trigger">
+																<input type="checkbox" name="" value="" class="checkboxSq stat_checkboxSq" id="checkbox_soc_fb">
+																<span class="slider_soc round"></span>													
+															</label>
+														</td>
+														<td class="flex_row align-items-center justify-content-center"><span class="icon_edit"></span><span class="icon_delete"></span></td>
+													</tr>
+													<tr class="table-hover">
+														<td>
+															<h3 class="shablon soc_hide">WhatsUp</h3>
+															<span class="settings-sources_icon_wh"></span>			
+														</td>
+														<td>Канал WhatsUp</td>
+														<td>
+															<label for="checkbox_soc_wh" class="switch checkbox_trigger">
+																<input type="checkbox" name="" value="" class="checkboxSq stat_checkboxSq" id="checkbox_soc_wh">
+																<span class="slider_soc round"></span>													
+															</label>
+														</td>
+														<td class="flex_row align-items-center justify-content-center"><span class="icon_edit"></span><span class="icon_delete"></span></td>
+													</tr>
+													<tr class="table-hover">
+														<td>
+															<h3 class="shablon soc_hide">Telegram</h3>
+															<span class="settings-sources_icon_tg"></span>		
+														</td>
+														<td>Канал Telegram</td>
+														<td>
+															<label for="checkbox_soc_tg" class="switch checkbox_trigger">
+																<input type="checkbox" name="" value="" class="checkboxSq stat_checkboxSq" id="checkbox_soc_tg">
+																<span class="slider_soc round"></span>													
+															</label>
+														</td>
+														<td class="flex_row align-items-center justify-content-center"><span class="icon_edit"></span><span class="icon_delete"></span></td>
+													</tr>
+													<tr class="table-hover">
+														<td>
+															<h3 class="shablon soc_hide">Skype</h3>
+															<span class="settings-sources_icon_sk"></span>		
+														</td>
+														<td>Канал Skype</td>
+														<td>
+															<label for="checkbox_soc_sk" class="switch checkbox_trigger">
+																<input type="checkbox" name="" value="" class="checkboxSq stat_checkboxSq" id="checkbox_soc_sk">
+																<span class="slider_soc round"></span>													
+															</label>
+														</td>
+														<td class="flex_row align-items-center justify-content-center"><span class="icon_edit"></span><span class="icon_delete"></span></td>
+													</tr>
+													<tr class="table-hover">
+														<td>
+															<h3 class="shablon soc_hide">Gmail</h3>
+															<span class="settings-sources_icon_gm"></span>		
+														</td>
+														<td>Канал Gmail</td>
+														<td>
+															<label for="checkbox_soc_gm" class="switch checkbox_trigger">
+																<input type="checkbox" name="" value="" class="checkboxSq stat_checkboxSq" id="checkbox_soc_gm">
+																<span class="slider_soc round"></span>													
+															</label>
+														</td>
+														<td class="flex_row align-items-center justify-content-center"><span class="icon_edit"></span><span class="icon_delete"></span></td>
+													</tr>
+												</tbody>
+											</table>
+
+										</div>
+									</div>
+									<div class="settings-chatBot settings-container" id="settings-chatBot">
+
+										<div class="container-fluid">
+
+											<div class="row mt-4">
+												<div class="col-md-12">
+													<h2>Настройка Чат-бота</h2>
+													<p class="chat_ustanovka">Настройте с помощью команд цепочку диалога с собеседником или выберите  готовые шаблоны</p>
+													<label for="chat_online" class="contcheck">
+														<p class="chat_online_txt">Включен</p>
+														<input type="checkbox" name="" value="" id="chat_online" checked="">
+														<span class="checkmark"></span>													
+													</label>
+												</div>
+												<div class="col-md-12">
+													<div class="col-xl-8 col-lg-8 col-md-12 mb-4 grid-container nopad">
+														<span class="command_chatbot">Свои настройки<i class="material-icons">settings</i></span>
+														<span class="command_chatbot">Доставка<i class="material-icons">directions_car</i></span>
+														<span class="command_chatbot">Прайс-лист<i class="material-icons ">assignment</i></span>
+														<span class="command_chatbot">Контакты<i class="material-icons">contact_phone</i></span>
+														<span class="command_chatbot">Время работы<i class="material-icons">access_alarm</i></span>
+													</div>
+												</div>
+												<div class="col-xl-5 col-lg-8 col-md-8 col-sm-12 mb-4">
+													<div class="bot-mainbox">
+														<div class="bot-mainbox_line1">
+															<p class="bot-name">Чат-бот</p>															
+															<span><p class="bot-add">Добавить команду</p><i class="material-icons">add_box</i></span>
+														</div>
+														<div class="bot-mainbox_line2">
+															<div class="main_question">
+																<textarea class="form-control" id="chatbotTextarea">Что бы вы хотели узнать, о нашем  омниканальном сервисе ?</textarea>
+															</div>
+														</div>
+														<div class="bot-mainbox_line3 d-flex justify-content-between">
+															<button type="button" class="bot-mainbox_saveButton">Сохранить</button>															
+															<span><p class="bot-close">Свернуть ветки</p><i class="material-icons">indeterminate_check_box</i></span>
+														</div>
+													</div>													
+												</div>
+										
+														<div class="col-md-12 mobmargin_chatbot chat_wrapper mt-4">
+													<div class="row">
+														<div class="col-auto flex_row pr555">
+															<div class="level_question first_level_stripe" tooltip_chat="Что бы вы хотели узнать, о нашем  омниканальном сервисе ?">
+																<span>
+																	<i class="material-icons add_q" data-toggle="modal" data-target="#chat-bot-message">edit</i>
+																	<i class="material-icons close_q">cancel</i></span>
+																<span class="level_question_number number_first">#1</span>
+																<span>																	
+																	<i class="material-icons edit_q"></i>
+																	<i class="material-icons edit_q">arrow_right</i>
+																</span>
+															</div>															
+															<div class="level_question first_level_stripe" tooltip_chat="Что бы вы хотели узнать, о нашем  омниканальном сервисе ?">
+																<span>
+																	<i class="material-icons add_q" data-toggle="modal" data-target="#chat-bot-message">edit</i>
+																	<i class="material-icons close_q">cancel</i></span>
+																<span class="level_question_number number_second">#2</span>
+																<span>																	
+																	<i class="material-icons edit_q">arrow_drop_down</i>
+																	<i class="material-icons edit_q">arrow_right</i>
+																</span>
+															</div>
+															<div class="col-auto flex_column">
+																<span class="long_stripe"></span>
+																<div class="level_question second_level_stripe" tooltip_chat="Что бы вы хотели узнать, о нашем  омниканальном сервисе ?">
+																	<span>
+																	<i class="material-icons add_q" data-toggle="modal" data-target="#chat-bot-message">edit</i>
+																	<i class="material-icons close_q">cancel</i></span>
+																<span class="level_question_number number_second">#2</span>
+																<span>																	
+																	<i class="material-icons edit_q">arrow_drop_down</i>
+																	<i class="material-icons edit_q">arrow_right</i>
+																</span>
+																</div>
+																<div class="level_question second_level_stripe" tooltip_chat="Что бы вы хотели узнать, о нашем  омниканальном сервисе ?">
+																	<span>
+																	<i class="material-icons add_q" data-toggle="modal" data-target="#chat-bot-message">edit</i>
+																	<i class="material-icons close_q">cancel</i></span>
+																<span class="level_question_number number_third">#3</span>
+																<span>																	
+																	<i class="material-icons edit_q">arrow_drop_down</i>
+																	<i class="material-icons edit_q">arrow_right</i>
+																</span>
+																</div>
+																<div class="col-auto flex_row">
+																	<div class="level_question first_level_stripe" tooltip_chat="Что бы вы хотели узнать, о нашем  омниканальном сервисе ?">
+																		<span>
+																			<i class="material-icons add_q" data-toggle="modal" data-target="#chat-bot-message">edit</i>
+																			<i class="material-icons close_q">cancel</i></span>
+																			<span class="level_question_number number_fourth">#4</span>
+																			<span>																	
+																				<i class="material-icons edit_q">arrow_drop_down</i>
+																				<i class="material-icons edit_q">arrow_right</i>
+																			</span>
+																	</div>
+																	<div class="level_question" tooltip_chat="Что бы вы хотели узнать, о нашем  омниканальном сервисе ?">
+																		<span>
+																			<i class="material-icons add_q" data-toggle="modal" data-target="#chat-bot-message">edit</i>
+																			<i class="material-icons close_q">cancel</i></span>
+																			<span class="level_question_number number_fourth">#4</span>
+																			<span>																	
+																				<i class="material-icons edit_q">arrow_drop_down</i>
+																				<i class="material-icons edit_q">arrow_right</i>
+																			</span>
+																	</div>																	
+																</div>
+															</div>
+															<div class="level_question first_level_stripe" tooltip_chat="Что бы вы хотели узнать, о нашем  омниканальном сервисе ?">
+																<span>
+																	<i class="material-icons add_q" data-toggle="modal" data-target="#chat-bot-message">edit</i>
+																	<i class="material-icons close_q">cancel</i></span>
+																<span class="level_question_number number_second">#2</span>
+																<span>																	
+																	<i class="material-icons edit_q">arrow_drop_down</i>
+																	<i class="material-icons edit_q">arrow_right</i>
+																</span>
+															</div>
+															<div class="level_question first_level_stripe" tooltip_chat="Что бы вы хотели узнать, о нашем  омниканальном сервисе ?">
+																<span>
+																	<i class="material-icons add_q" data-toggle="modal" data-target="#chat-bot-message">edit</i>
+																	<i class="material-icons close_q">cancel</i></span>
+																<span class="level_question_number number_second">#2</span>
+																<span>																	
+																	<i class="material-icons edit_q">arrow_drop_down</i>
+																	<i class="material-icons edit_q">arrow_right</i>
+																</span>
+															</div>
+															<div class="level_question first_level_stripe" tooltip_chat="Что бы вы хотели узнать, о нашем  омниканальном сервисе ?">
+																<span>
+																	<i class="material-icons add_q" data-toggle="modal" data-target="#chat-bot-message">edit</i>
+																	<i class="material-icons close_q">cancel</i></span>
+																<span class="level_question_number number_second">#2</span>
+																<span>																	
+																	<i class="material-icons edit_q">arrow_drop_down</i>
+																	<i class="material-icons edit_q">arrow_right</i>
+																</span>
+															</div>
+															<div class="col-auto flex_column">
+																<span class="long_stripe"></span>
+																<div class="level_question second_level_stripe" tooltip_chat="Что бы вы хотели узнать, о нашем  омниканальном сервисе ?">
+																	<span>
+																	<i class="material-icons add_q" data-toggle="modal" data-target="#chat-bot-message">edit</i>
+																	<i class="material-icons close_q">cancel</i></span>
+																<span class="level_question_number number_second">#2</span>
+																<span>																	
+																	<i class="material-icons edit_q">arrow_drop_down</i>
+																	<i class="material-icons edit_q">arrow_right</i>
+																</span>
+																</div>
+																<div class="level_question second_level_stripe" tooltip_chat="Что бы вы хотели узнать, о нашем  омниканальном сервисе ?">
+																	<span>
+																	<i class="material-icons add_q" data-toggle="modal" data-target="#chat-bot-message">edit</i>
+																	<i class="material-icons close_q">cancel</i></span>
+																<span class="level_question_number number_third">#3</span>
+																<span>																	
+																	<i class="material-icons edit_q">arrow_drop_down</i>
+																	<i class="material-icons edit_q">arrow_right</i>
+																</span>
+																</div>
+																<div class="col-auto flex_row">
+																	<span class="long_stripe_column"></span>
+																	<div class="level_question second_level_stripe" tooltip_chat="Что бы вы хотели узнать, о нашем  омниканальном сервисе ?">
+																		<span>
+																			<i class="material-icons add_q" data-toggle="modal" data-target="#chat-bot-message">edit</i>
+																			<i class="material-icons close_q">cancel</i></span>
+																			<span class="level_question_number number_fourth">#4</span>
+																			<span>																	
+																				<i class="material-icons edit_q">arrow_drop_down</i>
+																				<i class="material-icons edit_q">arrow_right</i>
+																			</span>
+																	</div>
+																	<div class="level_question" tooltip_chat="Что бы вы хотели узнать, о нашем  омниканальном сервисе ?">
+																		<span>
+																			<i class="material-icons add_q" data-toggle="modal" data-target="#chat-bot-message">edit</i>
+																			<i class="material-icons close_q">cancel</i></span>
+																			<span class="level_question_number number_fourth">#4</span>
+																			<span>																	
+																				<i class="material-icons edit_q">arrow_drop_down</i>
+																				<i class="material-icons edit_q">arrow_right</i>
+																			</span>
+																	</div>																	
+																</div>
+																<div class="level_question" tooltip_chat="Что бы вы хотели узнать, о нашем  омниканальном сервисе ?">
+																	<span>
+																			<i class="material-icons add_q" data-toggle="modal" data-target="#chat-bot-message">edit</i>
+																			<i class="material-icons close_q">cancel</i></span>
+																			<span class="level_question_number number_fifth">#5</span>
+																			<span>																	
+																				<i class="material-icons edit_q">arrow_drop_down</i>
+																				<i class="material-icons edit_q">arrow_right</i>
+																			</span>
+																</div>
+															</div>
+															<div class="level_question first_level_stripe" tooltip_chat="Что бы вы хотели узнать, о нашем  омниканальном сервисе ?">
+																<span>
+																	<i class="material-icons add_q" data-toggle="modal" data-target="#chat-bot-message">edit</i>
+																	<i class="material-icons close_q">cancel</i></span>
+																<span class="level_question_number number_second">#2</span>
+																<span>																	
+																	<i class="material-icons edit_q">arrow_drop_down</i>
+																	<i class="material-icons edit_q">arrow_right</i>
+																</span>
+															</div>
+															<div class="level_question first_level_stripe" tooltip_chat="Что бы вы хотели узнать, о нашем  омниканальном сервисе ?">
+																<span>
+																	<i class="material-icons add_q" data-toggle="modal" data-target="#chat-bot-message">edit</i>
+																	<i class="material-icons close_q">cancel</i></span>
+																<span class="level_question_number number_second">#2</span>
+																<span>																	
+																	<i class="material-icons edit_q">arrow_drop_down</i>
+																	<i class="material-icons edit_q">arrow_right</i>
+																</span>
+															</div>
+															<div class="level_question first_level_stripe" tooltip_chat="Что бы вы хотели узнать, о нашем  омниканальном сервисе ?">
+																<span>
+																	<i class="material-icons add_q" data-toggle="modal" data-target="#chat-bot-message">edit</i>
+																	<i class="material-icons close_q">cancel</i></span>
+																<span class="level_question_number number_second">#2</span>
+																<span>																	
+																	<i class="material-icons edit_q">arrow_drop_down</i>
+																	<i class="material-icons edit_q">arrow_right</i>
+																</span>
+															</div>
+															<div class="level_question" tooltip_chat="Что бы вы хотели узнать, о нашем  омниканальном сервисе ?">
+																<span>
+																	<i class="material-icons add_q" data-toggle="modal" data-target="#chat-bot-message">edit</i>
+																	<i class="material-icons close_q">cancel</i></span>
+																<span class="level_question_number number_second">#2</span>
+																<span>																	
+																	<i class="material-icons edit_q">arrow_drop_down</i>
+																	<i class="material-icons edit_q">arrow_right</i>
+																</span>
+															</div>
+															
+														</div>
+													</div>
+
+													<div class="row">
+														<div class="col-auto flex_row">
+															<div class="level_question first_level_stripe" tooltip_chat="Что бы вы хотели узнать, о нашем  омниканальном сервисе ?">
+																<span>
+																	<i class="material-icons add_q" data-toggle="modal" data-target="#chat-bot-message">edit</i>
+																	<i class="material-icons close_q">cancel</i></span>
+																<span class="level_question_number number_first">#1</span>
+																<span>																	
+																	<i class="material-icons edit_q"></i>
+																	<i class="material-icons edit_q">arrow_right</i>
+																</span>
+															</div>
+															<div class="col-auto flex_column">
+																<span class="long_stripe"></span>
+																<div class="level_question second_level_stripe" tooltip_chat="Что бы вы хотели узнать, о нашем  омниканальном сервисе ?">
+																	<span>
+																	<i class="material-icons add_q" data-toggle="modal" data-target="#chat-bot-message">edit</i>
+																	<i class="material-icons close_q">cancel</i></span>
+																<span class="level_question_number number_second">#2</span>
+																<span>																	
+																	<i class="material-icons edit_q">arrow_drop_down</i>
+																	<i class="material-icons edit_q">arrow_right</i>
+																</span>
+																</div>
+																<div class="level_question" tooltip_chat="Что бы вы хотели узнать, о нашем  омниканальном сервисе ?">
+																	<span><i class="material-icons close_q">cancel</i></span>
+																	<span class="level_question_number number_third">#3</span>
+																	<span><i class="material-icons add_q" data-toggle="modal" data-target="#chat-bot-message">edit</i><i class="material-icons edit_q">add_box</i></span>
+																</div>
+															</div>
+															<div class="level_question" tooltip_chat="Что бы вы хотели узнать, о нашем  омниканальном сервисе ?">
+																<span>
+																	<i class="material-icons add_q" data-toggle="modal" data-target="#chat-bot-message">edit</i>
+																	<i class="material-icons close_q">cancel</i></span>
+																<span class="level_question_number number_second">#2</span>
+																<span>																	
+																	<i class="material-icons edit_q">arrow_drop_down</i>
+																	<i class="material-icons edit_q">arrow_right</i>
+																</span>
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-auto">
+															<div class="level_question first_level_stripe" tooltip_chat="Что бы вы хотели узнать, о нашем  омниканальном сервисе ?">
+																<span>
+																	<i class="material-icons add_q" data-toggle="modal" data-target="#chat-bot-message">edit</i>
+																	<i class="material-icons close_q">cancel</i></span>
+																<span class="level_question_number number_first">#1</span>
+																<span>																	
+																	<i class="material-icons edit_q"></i>
+																	<i class="material-icons edit_q">arrow_right</i>
+																</span>
+															</div>
+														</div>
+														<div class="col-auto">
+															<div class="level_question" tooltip_chat="Что бы вы хотели узнать, о нашем  омниканальном сервисе ?">
+																<span>
+																	<i class="material-icons add_q" data-toggle="modal" data-target="#chat-bot-message">edit</i>
+																	<i class="material-icons close_q">cancel</i></span>
+																<span class="level_question_number number_second">#2</span>
+																<span>																	
+																	<i class="material-icons edit_q">arrow_drop_down</i>
+																	<i class="material-icons edit_q">arrow_right</i>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+													
+
+
+
+											</div>
+										</div>
+									</div>
+									<!-- ----- End Общие ----- -->
+
+
+								</div>
+							</div>
+
+
+
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="mainContainer" id="statContainer">
+
+				<div class="top_user_menu">
+					<div class="stat_item active" divid="all_stat_container"><a href="#all_stat_container">Общие</a></div>
+					<div class="stat_item" divid="oper_stat_container"><a href="#oper_stat_container">Операторы</a></div>		
+					<div class="stat_item" divid="time_stat_container"><a href="#time_stat_container">Время работы</a></div>
+					<div class="stat_item" divid="category_stat_container"><a href="#category_stat_container">Категории</a></div>
+				</div>
+
+				<div class="stat-container" id="all_stat_container">
+					<div class="overlay"></div>
+					<h2>Общие сведения</h2>
+					<div class="container">
+						<div class="full row d-flex align-items-center">
+							<div class="col-md-6 d-flex flex-row mobnopad">
+								<select name="selectMonth" class="month ml-2 mr-3">
+									<option>Январь</option>
+									<option>Февраль</option>
+									<option>Март</option>
+									<option>Апрель</option>
+								</select>
+								<input type="text" class="input stat_activeDate hasDatepicker" name="daterange" value="с 20 Дек 2017">
+							</div>
+							<div class="col-md-6 d-flex flex-row justify-content-end mobnopad">
+								<select name="selectProject" class="project_change mr-1" placeholder="ПОИСК">
+									<option>Проект#1</option>
+									<option>Проект#2</option>
+									<option>Проект#3</option>
+									<option>Проект#4</option>
+								</select>
+								<div class="refresh d-flex align-items-center justify-content-center ml-2 mr-2"><i class="material-icons">refresh</i></div>
+							</div>
+						</div>
+
+						<div class="row mt-4">
+							<div class="col-md-6">
+								<div class="half">
+									<h3>Обращения</h3>
+									<div class="col-auto mt-3 d-flex justify-content-between">
+										<span><i class="material-icons record_voice_over">record_voice_over</i></span>
+										<span class="flex_row align-items-end"><p class="admin_num">32</p></span></span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 mobmarginad">
+								<div class="half">
+									<h3>Сообщения</h3>
+									<div class="col-auto mt-3 d-flex justify-content-between">
+										<span><i class="material-icons people">notifications_active</i></span>
+										<span class="flex_row align-items-end"><p class="admin_num">132</p></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 mt-4 pl0 mb-4"><h5 class="mt-2">График обращений</h5></div>
+						<div class="col-12 mt10">		
+							<img src="img/graf.png" width="100%" height="auto">
+						</div>
+
+						<div class="col-md-12 mt-5 pl0"><h5 class="mt-2">Детализация обращений по операторам</h5></div>
+						<table class="col-md-12 mt-4 detail table-striped table-hover table-responsive nopad" id="detail_all">
+
+							<tbody>
+								<thead class="text-center">
+									<th class="big">Канал</th>
+									<th>Кол-во обращений</th>
+									<th>Завершены/Пропущены/Отменены</th>
+									<th>Время ожидания ответа</th>
+									<th>Длительность диалога</th>			
+									<th class="d-flex flex-row align-items-center nomarg"><p class="nomarg">Скорость ответа</p> <li class="nav-item dropdown">
+										<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+										<div class="dropdown-menu">
+											<a class="dropdown-item" href="#one">Экспорт в .exl</a>
+											<a class="dropdown-item" href="#two">Экспорт в .doc</a>
+											<a class="dropdown-item" href="#three">Экспорт в .png</a>
+										</div>
+									</li></th>
+								</thead>
+								<tr class="text-center">
+									<td class="text-left pl-5 mobline"><span class="icon_fb"></span>Промо-страница (Facebook)</td>
+									<td>120</td>
+									<td><p class="numberCompleted">120</p>/<p class="numberMissed">30</p>/<p class="numberCanceled">2</p></td>
+									<td>00:00:26</td>
+									<td>00:02:10</td>
+									<td>00:00:10</td>
+								</tr>
+								<tr class="text-center">
+									<td class="text-left pl-5 mobline"><span class="icon_vk"></span>Группа в «ВК»</td>
+									<td>120</td>
+									<td><p class="numberCompleted">120</p>/<p class="numberMissed">30</p>/<p class="numberCanceled">2</p></td>
+									<td>00:00:26</td>
+									<td>00:02:10</td>
+									<td>00:00:10</td>
+								</tr>
+								<tr class="text-center">
+									<td class="text-left pl-5 mobline"><span class="icon_tel"></span>Чат-бот Telegram</td>
+									<td>120</td>
+									<td><p class="numberCompleted">120</p>/<p class="numberMissed">30</p>/<p class="numberCanceled">2</p></td>
+									<td>00:00:26</td>
+									<td>00:02:10</td>
+									<td>00:00:10</td>
+								</tr>
+								<tr class="text-center">
+									<td class="text-left pl-5 mobline"><span class="icon_skype"></span>Account_1 Skype</td>
+									<td>120</td>
+									<td><p class="numberCompleted">120</p>/<p class="numberMissed">30</p>/<p class="numberCanceled">2</p></td>
+									<td>00:00:26</td>
+									<td>00:02:10</td>
+									<td>00:00:10</td>
+								</tr>
+								<tr class="text-center">
+									<td class="text-left pl-5 mobline"><span class="icon_wht"></span>Чат (Whatsapp)</td>
+									<td>120</td>
+									<td><p class="numberCompleted">120</p>/<p class="numberMissed">30</p>/<p class="numberCanceled">2</p></td>
+									<td>00:00:26</td>
+									<td>00:02:10</td>
+									<td>00:00:10</td>
+								</tr>
+								<tr class="text-center">
+									<td class="text-left pl-5 mobline"><span class="icon_viber"></span>Чат (Viber)</td>
+									<td>120</td>
+									<td><p class="numberCompleted">120</p>/<p class="numberMissed">30</p>/<p class="numberCanceled">2</p></td>
+									<td>00:00:26</td>
+									<td>00:02:10</td>
+									<td>00:00:10</td>
+								</tr>
+								<tr class="text-center">
+									<td class="text-left pl-5 mobline"><span class="icon_jc"></span>Joy Contact</td>
+									<td>120</td>
+									<td><p class="numberCompleted">120</p>/<p class="numberMissed">30</p>/<p class="numberCanceled">2</p></td>
+									<td>00:00:26</td>
+									<td>00:02:10</td>
+									<td>00:00:10</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+
+				</div>
+				<div class="stat-container" id="category_stat_container"><div class="overlay"></div>3</div>
+				<div class="stat-container" id="time_stat_container">
+					<div class="overlay"></div>
+
+					<h2>Общие</h2>
+					<div class="container">
+						<div class="full row d-flex align-items-center">
+							<div class="col-md-6 d-flex flex-row mobnopad">
+								<select name="selectMonth" class="month ml-2 mr-3">
+									<option>Январь</option>
+									<option>Февраль</option>
+									<option>Март</option>
+									<option>Апрель</option>
+								</select>
+								<input type="text" class="input stat_activeDate hasDatepicker" name="daterange" value="с 20 Дек 2017 ">
+							</div>
+							<div class="col-md-6 d-flex flex-row justify-content-end mobnopad">
+								<select name="selectProject" class="project_change mr-1" placeholder="ПОИСК">
+									<option>Проект#1</option>
+									<option>Проект#2</option>
+									<option>Проект#3</option>
+									<option>Проект#4</option>
+								</select>
+								<div class="refresh d-flex align-items-center justify-content-center ml-2 mr-2"><i class="material-icons">refresh</i></div>
+							</div>
+						</div>
+					</div>
+					<div class="container mt-4">
+						<div class="row">
+							<div class="col-md-4 col-6">
+								<div class="col-auto d-flex justify-content-between half_five">
+									<h3>Обращения</h3>
+									<i class="material-icons pic phone_in_talk">phone_in_talk</i>
+									<span class="flex_row align-items-end"><p class="admin_num">650</p></span></span>
+								</div>
+							</div>
+							<div class="col-md-4 col-6">
+								<div class="col-auto d-flex justify-content-between half_five">
+									<h3>Сообщения</h3>
+									<i class="material-icons pic notifications_active">notifications_active</i>
+									<span class="flex_row align-items-end"><p class="admin_num">650</p></span></span>
+								</div>
+							</div>
+							<div class="col-md-4 col-6 mobmargintime">
+								<div class="col-auto d-flex justify-content-between half_five">
+									<h3>Проекты</h3>
+									<i class="material-icons pic folder">folder</i>
+									<span class="flex_row align-items-end"><p class="admin_num">4</p></span></span>
+								</div>
+							</div>
+							<div class="col-md-4 mt-4 col-6 mobmargintime">
+								<div class="col-auto d-flex justify-content-between half_five">
+									<h3>Посетители</h3>
+									<i class="material-icons pic record_voice_over">record_voice_over</i>
+									<span class="flex_row align-items-end"><p class="admin_num">10510</p></span></span>
+								</div>
+							</div>
+							<div class="col-md-4 mt-4 col-6 mobmargintime">
+								<div class="col-auto d-flex justify-content-between half_five">
+									<h3>Визиты</h3>
+									<i class="material-icons pic touch_app">touch_app</i>
+									<span class="flex_row align-items-end"><p class="admin_num">10510</p></span></span>
+								</div>
+							</div>
+							<div class="col-md-4 mt-4 col-6 mobmargintime">
+								<div class="col-auto d-flex justify-content-between half_five">
+									<h3>Просмотры</h3>
+									<i class="material-icons pic zoom_in">zoom_in</i>
+									<span class="flex_row align-items-end"><p class="admin_num">800</p></span></span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 mt-4 pl0 mb-4"><h5 class="mt-2">Детализация времени работы по операторам</h5></div>
+						<div class="col-12 mt10">
+							<div class="row pt-4">
+								<div class="col-md-6"></div>
+								<div class="col-md-6 d-flex flex-row">
+
+									<select name="selectOper" class="selectOper">
+										<option>Проект#1</option>
+										<option>Проект#1</option>
+										<option>Проект#1</option>
+										<option>Проект#1</option>
+										<option>Проект#1</option>
+
+									</select>
+									<button type="button" class="btn_addTemplateR">Сохранить</button>
+								</div>
+								<div id="drop">
+									<li class="nav-item dropdown">
+										<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+										<div class="dropdown-menu">
+											<a class="dropdown-item" href="#one">Экспорт в .exl</a>
+											<a class="dropdown-item" href="#two">Экспорт в .doc</a>
+											<a class="dropdown-item" href="#three">Экспорт в .png</a>
+										</div>
+									</li>
+								</div>
+							</div>
+							<img src="img/graf1.png" width="100%" height="auto">
+						</div>
+					</div>
+
+				</div>
+
+				<div class="stat-container" id="oper_stat_container">
+					<div class="overlay"></div>
+					<h2>Сведения по операторам</h2>
+					<div class="container">
+						<div class="full row d-flex align-items-center">
+							<div class="col-md-6 d-flex flex-row mobnopad">
+								<select name="selectMonth" class="month ml-2 mr-3">
+									<option>Январь</option>
+									<option>Февраль</option>
+									<option>Март</option>
+									<option>Апрель</option>
+								</select>
+								<input type="text" class="input stat_activeDate hasDatepicker" name="daterange" value="с 20 Дек 2017 ">
+							</div>
+							<div class="col-md-6 d-flex flex-row justify-content-end mobnopad">
+								<select name="selectProject" class="project_change mr-1" placeholder="ПОИСК">
+									<option>Проект#1</option>
+									<option>Проект#2</option>
+									<option>Проект#3</option>
+									<option>Проект#4</option>
+								</select>
+								<div class="refresh d-flex align-items-center justify-content-center ml-2 mr-2"><i class="material-icons">refresh</i></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="container mt-4">
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="half">
+									<h3>Операторы</h3>
+									<div class="col-auto mt-3 d-flex justify-content-between ">
+										<span><i class="material-icons record_voice_over">record_voice_over</i></span>
+										<span class="flex_row align-items-end"><p class="admin_num">132</p><span class="d-flex flex_column text-center"><p class="admin_online_num">12</p><p class="online">online</p></span></span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 mobmarginad">
+								<div class="half">
+									<h3>Администраторы</h3>
+									<div class="col-auto mt-3 d-flex justify-content-between ">
+										<span><i class="material-icons people">people</i></span>
+										<span class="flex_row align-items-end"><p class="admin_num">132</p><span class="d-flex flex_column text-center"><p class="admin_online_num">12</p><p class="online">online</p></span></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 mt-5 pl0 mb-4"><h5 class="mt-2">Сведения по обращениям</h5></div>
+
+						<div class="mt-4 row" id="fourcol">
+							<div class="col-md-3 col-sm-6 col-6">
+								<div class="col half_five pl0 pt-3">
+									<i class="material-icons insert_chart">extension</i>
+									<span>20</span>
+								</div>
+								<h4>Нагрузка на оператора</h4>
+							</div>
+							<div class="col-md-3 col-sm-6 col-6">
+								<div class="col half_five pl0 pt-3">
+									<i class="material-icons loop">loop</i>
+									<span>50%</span>
+								</div>
+								<h4>Конверсия по чату</h4>
+							</div>
+							<div class="col-md-3 col-sm-6 col-6 mobmargin">
+								<div class="col half_five pl0 pt-3">
+									<i class="material-icons ring_volume">ring_volume</i>
+									<span>00:00:26</span>
+								</div>
+								<h4>Среднее время ответа</h4>
+							</div>
+							<div class="col-md-3 col-sm-6 col-6 mobmargin">
+								<div class="col half_five pl0 pt-3">
+									<i class="material-icons star">star</i>
+									<span>5</span>
+								</div>
+								<h4>Оченка качества</h4>
+							</div>
+						</div>	
+						<div class="mt-5 row" id="fivecol">
+							<div class="col-md-1-5 col-sm-1-5 col-xs-1-5 col-lg-1-5 pl0">
+								<div class="col half_five pt-3">
+									<i class="material-icons forum">forum</i>
+									<span>20</span>
+								</div>
+								<h4>Всего чатов</h4>
+							</div>
+							<div class="col-md-1-5 col-sm-1-5 col-xs-1-5 col-lg-1-5">
+								<div class="col half_five pt-3">
+									<i class="material-icons check_box">check_box</i>
+									<span>12</span>
+								</div>
+								<h4>Завершенных</h4>
+							</div>
+							<div class="col-md-1-5 col-sm-1-5 col-xs-1-5 col-lg-1-5 mobmargin">
+								<div class="col half_five pt-3">
+									<i class="material-icons cancel">cancel</i>
+									<span>4</span>
+								</div>
+								<h4>Забаненых</h4>
+							</div>
+							<div class="col-md-1-5 col-sm-1-5 col-xs-1-5 col-lg-1-5 mobmargin">
+								<div class="col half_five pt-3">
+									<i class="material-icons person_add_disabled">person_add_disabled</i>
+									<span>2</span>
+								</div>
+								<h4>Пропущеных</h4>
+							</div>
+							<div class="col-md-1-5 col-sm-1-5 col-xs-1-5 col-lg-1-5 pr0">
+								<div class="col half_five pt-3">
+									<i class="material-icons android">android</i>
+									<span>10</span>
+								</div>
+								<h4>Отвечал бот</h4>
+							</div>
+
+
+							<div class="col-md-12 pl0 mt-5 mb-4"><h5 class="mt-2">График обращений</h5></div>
+							<div class="col-12 mt10">
+								<img src="img/graf.png" width="100%" height="auto">
+							</div>
+
+							<div class="col-md-12 mt-5 pl0"><h5 class="mt-2">Детализация обращений по операторам</h5></div>
+							<table class="col-md-12 mt-4 detail table-striped table-hover table-responsive nopad" id="detail">
+
+								<tbody>
+									<thead class="text-center">
+										<th>Оператор</th>
+										<th>Роль</th>
+										<th>Завершены/Пропущены/Отменены</th>
+										<th>Время ожидания ответа</th>
+										<th>Длительность диалога</th>
+										<th>Скорость ответа</th>
+										<th class="d-flex flex-row align-items-center nomarg"><p class="nomarg">Средняя оценка</p> <li class="nav-item dropdown">
+											<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+											<div class="dropdown-menu">
+												<a class="dropdown-item" href="#one">Экспорт в .exl</a>
+												<a class="dropdown-item" href="#two">Экспорт в .doc</a>
+												<a class="dropdown-item" href="#three">Экспорт в .png</a>
+											</div>
+										</li></th>
+									</thead>
+									<tr class="text-center">
+										<td>Александр <span class="mail">alexandr@yandex.ru</span></td>
+										<td>Оператор</td>
+										<td><p class="numberCompleted">120</p>/<p class="numberMissed">30</p>/<p class="numberCanceled">2</p></td>
+										<td>00:00:26</td>
+										<td>00:02:10</td>
+										<td>00:00:10</td>
+										<td class="rate_4">5</td>
+									</tr>
+									<tr class="text-center">
+										<td>Александр <span class="mail">alexandr@yandex.ru</span></td>
+										<td>Оператор</td>
+										<td><p class="numberCompleted">120</p>/<p class="numberMissed">30</p>/<p class="numberCanceled">2</p></td>
+										<td>00:00:26</td>
+										<td>00:02:10</td>
+										<td>00:00:10</td>
+										<td class="rate_3">5</td>
+									</tr>
+									<tr class="text-center">
+										<td>Александр <span class="mail">alexandr@yandex.ru</span></td>
+										<td>Оператор</td>
+										<td><p class="numberCompleted">120</p>/<p class="numberMissed">30</p>/<p class="numberCanceled">2</p></td>
+										<td>00:00:26</td>
+										<td>00:02:10</td>
+										<td>00:00:10</td>
+										<td class="rate_5">5</td>
+									</tr>
+									<tr class="text-center">
+										<td>Александр <span class="mail">alexandr@yandex.ru</span></td>
+										<td>Оператор</td>
+										<td><p class="numberCompleted">120</p>/<p class="numberMissed">30</p>/<p class="numberCanceled">2</p></td>
+										<td>00:00:26</td>
+										<td>00:02:10</td>
+										<td>00:00:10</td>
+										<td class="rate_4">5</td>
+									</tr>
+									<tr class="text-center">
+										<td>Александр <span class="mail">alexandr@yandex.ru</span></td>
+										<td>Оператор</td>
+										<td><p class="numberCompleted">120</p>/<p class="numberMissed">30</p>/<p class="numberCanceled">2</p></td>
+										<td>00:00:26</td>
+										<td>00:02:10</td>
+										<td>00:00:10</td>
+										<td class="rate_5">5</td>
+									</tr>
+									<tr class="text-center">
+										<td>Александр <span class="mail">alexandr@yandex.ru</span></td>
+										<td>Оператор</td>
+										<td><p class="numberCompleted">120</p>/<p class="numberMissed">30</p>/<p class="numberCanceled">2</p></td>
+										<td>00:00:26</td>
+										<td>00:02:10</td>
+										<td>00:00:10</td>
+										<td class="rate_4">5</td>
+									</tr>
+									<tr class="text-center">
+										<td>Александр <span class="mail">alexandr@yandex.ru</span></td>
+										<td>Оператор</td>
+										<td><p class="numberCompleted">120</p>/<p class="numberMissed">30</p>/<p class="numberCanceled">2</p></td>
+										<td>00:00:26</td>
+										<td>00:02:10</td>
+										<td>00:00:10</td>
+										<td class="rate_3">5</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- Modal Шаблоны -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Создание шаблона</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+  	<div class="row">
+  		<div class="col-md-6">
+  			<h4>Название шаблона</h4>
+  			<input type="text" id="name_shablon">
+  		</div>
+  		<div class="col-md-6">
+  			<h4>Команда шаблона</h4>
+  			<input type="text" id="command_shablon">
+  			<p class="small_txt mt-2">Придумайте команду для быстрого ответа клиенту</p>
+  		</div>
+  		<div class="col-md-12 mb-3">
+  			<textarea class="form-control" id="templateText" placeholder="Впишите сюда текст готового сообщения "></textarea>
+  		</div>
+  		<div class="col-md-12"><h4>Доступ в проектах</h4></div>
+  		<div class="col-md-12"><p class="small_txt">Выберите проекты, в которых будет использован данный шаблон</p></div>
+  		<div class="col-md-12"><label for="progect#1" class="contcheck"><h6>Для всех проектов</h6><input type="checkbox" name="" value="" id="progect#1"><span class="checkmark"></span></label>
+  		</div>
+  		<div class="col-md-6"><label for="progect#2" class="contcheck"><h6>BroadBend</h6><input type="checkbox" name="" value="" id="progect#2"><span class="checkmark"></span></label>
+  		</div>
+  		<div class="col-md-6"><label for="progect#3" class="contcheck"><h6>Проект#3</h6><input type="checkbox" name="" value="" id="progect#3"><span class="checkmark"></span></label>
+  		</div>
+  		<div class="col-md-6"><label for="progect#4" class="contcheck"><h6>Seven-Sky</h6><input type="checkbox" name="" value="" id="progect#4"><span class="checkmark"></span></label>
+  		</div>
+  		<div class="col-md-6"><label for="progect#5" class="contcheck"><h6>Проект#4</h6><input type="checkbox" name="" value="" id="progect#5"><span class="checkmark"></span></label>
+  		</div>
+  	</div>
+  </div>
+  <div class="modal-footer">
+  	<button type="button" class="btn_themeDarkBlue" data-dismiss="modal">Отмена</button>
+        <button type="button" class="btnsave">Сохранить</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal Пользователи -->
+<div class="modal fade" id="modalUsers" tabindex="-1" role="dialog" aria-labelledby="modalUsersTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Создание нового пользователя</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+  	<div class="row">
+  		<div class="col-md-4 d-flex align-items-center">
+  			<h4>Тип пользователя:</h4>
+  		</div>
+  		<div class="col-md-8">
+  			<select name="user_type" class="select-type">
+  				<option>Администратор</option>
+  				<option>Оператор</option>
+  				<option>Супервизор</option>
+  			</select>
+  		</div>
+  		<div class="col-md-9 col-6 mt-3 mb-3 d-flex align-items-center">
+  			<h4>Автоматический прием сообщений</h4>  			
+  		</div>
+  		<div class="col-md-3 col-6 justify-content-end d-flex mt-3 mb-3"><label for="avtopriem" class="contcheck avtopriem"><input type="checkbox" name="" value="" id="avtopriem"><span class="checkmark"></span></label>
+  		</div>
+  		<div class="col-md-4 d-flex align-items-center">
+  			<h4>Имя*</h4>
+  		</div>
+  		<div class="col-md-8">
+  			<input type="text" id="user_name">
+  		</div>
+  		<div class="col-md-4 mt-3 d-flex align-items-center">
+  			<h4>E-mail (Логин)*</h4>
+  		</div>
+  		<div class="col-md-8 mt-3">
+  			<input type="text" id="user_name" placeholder="Введите E-mail">
+  		</div>
+  			<div class="col-md-9 col-6 mt-3 mb-3 d-flex align-items-center">
+  			<h4>Активен</h4>  			
+  		</div>
+  		<div class="col-md-3 col-6 justify-content-end d-flex mt-3 mb-3"><label for="activnost" class="contcheck avtopriem"><input type="checkbox" name="" value="" id="activnost"><span class="checkmark"></span></label>
+  		</div>
+  		<div class="col-md-12"><h4>Доступ в проектах</h4></div>
+  		<div class="col-md-12"><label for="progect#10" class="contcheck"><h6>Для всех проектов</h6><input type="checkbox" name="" value="" id="progect#10"><span class="checkmark"></span></label>
+  		</div>
+  		<div class="col-md-6"><label for="progect#20" class="contcheck"><h6>BroadBend</h6><input type="checkbox" name="" value="" id="progect#20"><span class="checkmark"></span></label>
+  		</div>
+  		<div class="col-md-6"><label for="progect#30" class="contcheck"><h6>Проект#3</h6><input type="checkbox" name="" value="" id="progect#30"><span class="checkmark"></span></label>
+  		</div>
+  		<div class="col-md-6"><label for="progect#40" class="contcheck"><h6>Seven-Sky</h6><input type="checkbox" name="" value="" id="progect#40"><span class="checkmark"></span></label>
+  		</div>
+  		<div class="col-md-6"><label for="progect#50" class="contcheck"><h6>Проект#4</h6><input type="checkbox" name="" value="" id="progect#50"><span class="checkmark"></span></label>
+  		</div>
+  		<div class="col-md-4 d-flex align-items-center">
+  			<h4>Пароль*</h4>
+  		</div>
+  		<div class="col-md-8">
+  			<input type="text" id="user_name">
+  		</div>
+  		<div class="col-md-4 mt-3 d-flex align-items-center">
+  			<h4>Повторите пароль</h4>
+  		</div>
+  		<div class="col-md-8 mt-3">
+  			<input type="text" id="user_name">
+  		</div>
+  	</div>
+  </div>
+  <div class="modal-footer">
+  	<button type="button" class="btn_themeDarkBlue" data-dismiss="modal">Отмена</button>
+        <button type="button" class="btnsave">Сохранить</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Chat-bot message -->
+<div class="modal fade" id="chat-bot-message" tabindex="-1" role="dialog" aria-labelledby="chat-bot-messageCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="chat-bot-messageLongTitle">Редактировать</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	<div class="row nopad mb-3">
+      	<div class="col-3"><h4>Команда</h4><input type="" name=""></div>
+      	<div class="col-9"><h4>Команда</h4><input type="" name=""></div>
+      </div>
+        <textarea class="textarea textarea_noRes form-control"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn_themeDarkBlue" data-dismiss="modal">Отмена</button>
+        <button type="submit" class="btnsave">Сохранить</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+	<section id="copyright">
+		<div class="copyright"><span>joycontact.ru © 2018</span></div>
+	</section>
+
+	<script
+	src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>	
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.2/js/dataTables.responsive.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/jscolor.js"></script>
+	<script src="js/small_script.js"></script>
+	<script src="js/jcontact.js"></script>
+	<script src="js/utils.js"></script>
+	<script src="js/main.js"></script>
+
+</body> 
+</html>

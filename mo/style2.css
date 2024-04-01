@@ -1,0 +1,19 @@
+body {
+	background-image: url(bg_page.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.map {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+.drop {
+	position: absolute;
+	top: 2.5%;
+	left: 1%;
+}

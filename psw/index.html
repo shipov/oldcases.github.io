@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Единый реестр российских программ для электронных вычислительных машин и баз данных</title>
+  <link rel="icon" href="favicon.svg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script
+    src="https://code.jquery.com/jquery-1.11.3.min.js"
+    integrity="sha256-7LkWEzqTdpEfELxcZZlS6wAx5Ff13zZ83lYO2/ujj7g="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="page_style.css">
+
+  <script src="countUp-jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+
+  <script>
+
+
+    //show up-button
+    $(document).scroll(function () {
+      var y = $(this).scrollTop();
+
+      if (y > 400) {
+        $('.lnk-up').fadeIn();
+      } else {
+        $('.lnk-up').fadeOut();
+      }
+    });
+
+
+
+  </script>
+</head>
+<body>
+<div id="content"></div>
+<div class="header">
+  <div class="container">
+    <div class="row">
+      <a href="#" class="logo">
+        <span class="logo_img"></span>
+        <span class="logo_txt">Реестр програмного обеспечения</span>
+      </a>
+      <div class="nav-primary ">
+        <ul class="d-flex">
+          <li><a href="page.html">Реестр</a></li>
+          <li>Заявления</li>
+          <li>Документы</li>
+          <li>Помощь</li>
+          <li class="d-flex">Личный кабинет<i class="lk">
+            <svg width="14" height="17" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path class="hlk" fill-rule="evenodd" clip-rule="evenodd"
+                    d="M8.12256 6.42324C7.64256 6.42324 7.18221 6.23256 6.8428 5.89315C6.50339 5.55374 6.31271 5.09339 6.31271 4.61339C6.31271 4.13339 6.50339 3.67304 6.8428 3.33363C7.18221 2.99422 7.64256 2.80354 8.12256 2.80354C8.60256 2.80354 9.0629 2.99422 9.40232 3.33363C9.74173 3.67304 9.93241 4.13339 9.93241 4.61339C9.93241 5.09339 9.74173 5.55374 9.40232 5.89315C9.0629 6.23256 8.60256 6.42324 8.12256 6.42324ZM4.14088 4.61339C4.14088 3.55738 4.56038 2.54463 5.30709 1.79792C6.0538 1.05121 7.06655 0.631714 8.12256 0.631714C9.17856 0.631714 10.1913 1.05121 10.938 1.79792C11.6847 2.54463 12.1042 3.55738 12.1042 4.61339C12.1042 5.6694 11.6847 6.68215 10.938 7.42886C10.1913 8.17557 9.17856 8.59507 8.12256 8.59507C7.06655 8.59507 6.0538 8.17557 5.30709 7.42886C4.56038 6.68215 4.14088 5.6694 4.14088 4.61339ZM3.41694 15.1105C3.41694 14.5024 3.74995 13.9088 4.57525 13.4165C5.66215 12.8266 6.88653 12.5367 8.12256 12.5767C9.61388 12.5767 10.8446 12.9098 11.6699 13.4165C12.4952 13.9088 12.8282 14.5024 12.8282 15.1105C12.8282 15.5449 12.6834 15.7476 12.5096 15.8924C12.3069 16.0517 11.9305 16.1964 11.3803 16.1964H4.86482C4.30015 16.1964 3.93818 16.0517 3.73547 15.8924C3.56173 15.7476 3.41694 15.5304 3.41694 15.1105ZM8.12256 10.4049C6.35614 10.4049 4.69108 10.7958 3.4459 11.5632C2.17176 12.3306 1.24512 13.5468 1.24512 15.1105C1.24512 16.1241 1.65052 16.9928 2.37447 17.5864C3.06945 18.1511 3.96714 18.3683 4.86482 18.3683H11.3803C12.2635 18.3683 13.1757 18.1511 13.8707 17.5864C14.5946 17.0073 15 16.1385 15 15.1105C15 13.5468 14.0734 12.3306 12.7992 11.5632C11.554 10.7958 9.90345 10.4049 8.12256 10.4049Z"
+                    fill="#1A2F75" stroke="#EFF6FF" stroke-width="0.5"/>
+            </svg>
+
+          </i></li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container txt_reestr-top">
+  <div class="txt_reestr">
+    <span class="button_reestr">Российский</span>
+    <span class="button_reestr2">Евразийский</span>
+  </div>
+</div>
+<div class="container-fluid main-banner">
+  <div class="map-wrap">
+    <div class="map"></div>
+  </div>
+
+  <div class="top_layer">
+    <div class="container">
+
+      <div class="row">
+
+        <div class="main-banner_txt">
+
+
+          <h1>Единый реестр российских программ для электронных вычислительных машин<br>и
+            баз данных</h1>
+        </div>
+
+        <div class="parametr col">
+          <div class="parametr-box">
+            <div class="coold"></div>
+            <div class="parametr-box-wrap">
+              <div class="parametr-box-wrap-content">
+                <div class="coolB"></div>
+                <div class="wrap">
+                                        <span class="parametr-box_numeral timer count-number" data-to="11163"
+                                              data-speed="2500"></span>
+                  <span class="parametr-box_txt">Включено в реестр</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="parametr col ">
+          <div class="parametr-box">
+            <div class="cool"></div>
+            <div class="parametr-box-wrap">
+              <div class="parametr-box-wrap-content">
+                <div class="coolBt"></div>
+                <div class="wrap">
+                                        <span class="parametr-box_numeral timer count-number" data-to="3529"
+                                              data-speed="2500"></span>
+                  <span class="parametr-box_txt">Правообладателей</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="parametr col ">
+          <div class="parametr-box">
+            <div class="coold"></div>
+            <div class="parametr-box-wrap">
+              <div class="parametr-box-wrap-content">
+                <div class="coolB"></div>
+                <div class="wrap margin24">
+                                        <span class="parametr-box_numeral timer count-number" data-to="11163"
+                                              data-speed="2500"></span>
+                  <span class="parametr-box_txt">Программных продуктов</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container mt-10">
+      <div class="row  gx-5">
+        <div class="col-sm-4">
+          <a href="page.html">
+            <div class="banner_sm1">
+              <h4>Реестр</h4>
+              <p>Реестр содержит сведения обо всем<br>программном обеспечении, которое<br>официально
+                признано
+                происходящим<br>из Российской Федерации</p>
+
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-4">
+          <a href="page.html">
+            <div class="banner_sm2">
+              <h4>Заявления</h4>
+              <p>В открытом доступе размещаются<br>все заявления о включении сведений<br>о программном
+                обеспечении
+                в реестре
+                <br>(после их регистрации)</p>
+
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-4">
+          <a href="page.html">
+            <div id="test" class="banner_sm3">
+              <h4>Подать заявление</h4>
+              <p>Формы для заполнения заявления<br>о включении сведений
+                о программном<br>обеспечении в реестр, загрузки<br>документов и материалов</p>
+
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="container content mt-4">
+  <div class="row mb-5">
+    <div class="col-md-12">
+      <div>
+        <h4>Поиск</h4>
+        <div class="search_reestr">
+          <span class="item">реестр</span>
+          <span class="item">заявления</span>
+          <span class="item">документы</span>
+        </div>
+        <div class="input-wrap">
+          <input type="search" placeholder="Поиск по классификации программного обеспечения">
+          <div><a href="#" class="main-button">Найти</a></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="row gx-4">
+    <div class="col-md-6 col-sm-12">
+      <div class="box">
+        <div class="box_part1">
+          <img src="img/round.svg">
+        </div>
+        <div class="box_part2">
+          <h5>Топ классов программного обеспечения</h5>
+          <ul>
+            <li>Операционные системы</li>
+            <li>Встроенное програмное обеспечение</li>
+            <li>Базы данных</li>
+            <li>Лингвистика</li>
+            <li>Системы дистанционного обучения</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <div class="box">
+        <div class="box_part1">
+          <img src="img/grapth.svg">
+        </div>
+        <div class="box_part2">
+          <h5>Топ классов программного обеспечения</h5>
+          <ul>
+            <li>Операционные системы</li>
+            <li>Встроенное програмное обеспечение</li>
+            <li>Базы данных</li>
+            <li>Лингвистика</li>
+            <li>Системы дистанционного обучения</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-custom gx-5">
+    <div class="col-md-8">
+      <div><h4>Единый реестр российских программ</h4>
+        <p class="mt-4">Реестр создан в соответствии со статьей 12.1 Федерального закона «Об информации,
+          информационных технологиях и о защите информации» в целях расширения использования российских
+          программ для электронных вычислительных машин и баз данных, подтверждения их происхождения из
+          Российской Федерации, а также в целях оказания правообладателям программ для электронных
+          вычислительных машин или баз данных мер государственной поддержки</p>
+        <a href="#" class="custom_button">Подробнее...</a>
+      </div>
+    </div>
+    <div class="col-md-4">
+
+         <a class="box-blue_a" href="#">
+        <div class="box-blue">
+          <h5>Рейтинг программного обеспечения</h5>
+          <h6>ТОП 100</h6>
+        </div>
+    </div>
+    </a>
+
+  </div>
+  <div class="row  mt-custom">
+    <h4 class="mb-4">Включены в реестр</h4>
+
+
+    <div class="col-md-4 col-sm-12 mt-3">
+                    <span class="flex-row d-flex block_po">
+                        <span class="icon1"></span>
+                        <span class="name-po">
+                            <a href="#" class="name">«Инструменты машинного обучения SberDataScience»</a>
+                            <p class="time-lead">10 июля 2021</p>
+                        </span>
+                    </span>
+    </div>
+
+    <div class="col-md-4 col-sm-12 mt-3">
+                    <span class="flex-row d-flex block_po">
+                        <span class="icon1"></span>
+                        <span class="name-po">
+                            <a href="#" class="name">«Инструменты машинного обучения SberDataScience»</a>
+                            <p class="time-lead">10 июля 2021</p>
+                        </span>
+                    </span>
+    </div>
+
+
+    <div class="col-md-4 col-sm-12 mt-3">
+                    <span class="flex-row d-flex block_po">
+                        <span class="icon1"></span>
+                        <span class="name-po">
+                            <a href="#" class="name">«Инструменты машинного обучения SberDataScience»</a>
+                            <p class="time-lead">10 июля 2021</p>
+                        </span>
+                    </span>
+    </div>
+
+
+    <div class="col-md-4 col-sm-12 mt-5">
+                    <span class="flex-row d-flex block_po">
+                        <span class="icon1"></span>
+                        <span class="name-po">
+                            <a href="#" class="name">«Инструменты машинного обучения SberDataScience»</a>
+                            <p class="time-lead">10 июля 2021</p>
+                        </span>
+                    </span>
+    </div>
+
+
+    <div class="col-md-4 col-sm-12 mt-5">
+                    <span class="flex-row d-flex block_po">
+                        <span class="icon1"></span>
+                        <span class="name-po">
+                            <a href="#" class="name">«Инструменты машинного обучения SberDataScience»</a>
+                            <p class="time-lead">10 июля 2021</p>
+                        </span>
+                    </span>
+    </div>
+
+
+    <div class="col-md-4 col-sm-12 mt-5">
+                    <span class="flex-row d-flex block_po">
+                        <span class="icon1"></span>
+                        <span class="name-po">
+                            <a href="#" class="name">«Инструменты машинного обучения SberDataScience»</a>
+                            <p class="time-lead">10 июля 2021</p>
+                        </span>
+                    </span>
+    </div>
+
+
+  </div>
+  <div class="row  gx-5 mt-custom">
+    <div class="d-flex flex-row align-items-center justify-content-between mb-4">
+      <h4>Новости</h4>
+      <a href="#" class="custom_button_news">Все новости</a></div>
+    <div class="col-12">
+      <div class="news d-flex flex-row box_news">
+        <div class="news-big">
+          <span class="news_lead">01 июля 2021</span>
+          <a href="#" class="big_txt">В ЕДИНОМ РЕЕСТРЕ российских программ для ЭВМ и БД по состоянию на
+            02.03.2021
+            9333 записей. В Едином реестре программ для ЭВМ и БД государств-членов Евразийского
+            экономического союза по состоянию на 02.03.2021 53 записи.</a>
+          <a href="#" class="more">Подробнее</a>
+        </div>
+        <div class="news-sm">
+          <div class="st_news">
+            <span class="news_lead">01 июля 2021</span>
+            <a href="#" class="sm_txt">В ЕДИНОМ РЕЕСТРЕ российских программ для ЭВМ и БД по состоянию на
+              02.07.2021
+              г. 10 872 записей В Едином реестре программ для ЭВМ ...</a>
+          </div>
+          <div class="st_news">
+            <span class="news_lead">03 июля 2021</span>
+            <a href="#" class="sm_txt">05 февраля 2021 года в Минцифре РФ состоялось заочное заседание
+              Экспертного
+              совета по программному обеспечению</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="control has-top">
+
+  <div class="control__line"></div>
+
+  <div class="control__wrap">
+    <div class="control__item"><a href="#" class="lnk-up"></a></div>
+
+    <div class="control__item"></div>
+
+
+  </div>
+
+</div>
+</div>
+<footer class="mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 d-flex flex-row">
+        <span class="footer-logo"></span>
+        <span class="copyright">Министерство цифрового развития, связи и массовых коммуникаций Российской Федерации</span>
+      </div>
+      <div class="col-md-6 d-flex align-items-center justify-content-end">
+        <div class="footer-nav">
+          <ul>
+            <li>Техническая поддержка</li>
+            <li>Сообщение об ошибке</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</footer>
+
+<!--<div class="container">-->
+<!--    <div class="row pt-5 mt-5">-->
+<!--        <div class="col-md-6">-->
+<!--            <canvas id="myChart" height="200vw" width="800vw"></canvas>-->
+<!--            <script src="init.js"></script>-->
+<!--        </div>-->
+
+<!--        <div class="col-md-6">-->
+<!--            <canvas id="myChart1" height="825vw" width="800vw"></canvas>-->
+<!--            <script src="init1.js"></script>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+</body>
+</html>

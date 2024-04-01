@@ -1,0 +1,156 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: Arial;
+    font-size: 17px;
+  }
+ 
+  .auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 38px;
+    position: absolute;
+    width: 380px;
+    height: 485px;
+    margin: auto;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: rgb(1 1 8 / 25%);
+    backdrop-filter: blur(11.9296px);
+    border-radius: 20px;
+    z-index: 1;
+    border: 0.01rem solid #00000094;
+
+}
+
+.auth {
+    color: #f8f8f87d;
+    font-size: 16px;
+}
+.uppass {
+    font-size: 12px;
+    color: rgb(0 106 255);
+    border-bottom: 0.01rem solid rgba(0, 106, 255);
+    flex: none;
+    order: 34;
+    align-self: stretch;
+    flex-grow: 0;
+    z-index: 4;
+    text-align: center;
+    font-weight: lighter;
+    margin-top: 20px;
+    display: block;
+    width: 135px;
+    padding-bottom: 4px;
+    margin: 28px auto;
+}
+input {
+	box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 12px;
+    width: 100%;
+    height: 48px;
+    background: #0004084f;
+    border: 1px solid #29313ed9;
+    border-radius: 8px;
+    flex: none;
+    align-self: stretch;
+    flex-grow: 0;
+    margin-bottom: 16px;
+    color: #fff;
+    transition: .6s;
+}
+
+input:hover {
+	box-shadow: 0px 0px 4px rgb(0 106 255), 0px 0px 20px rgba(0, 106, 255, 0.251);
+}
+
+input:focus {
+	background: #0004084f;
+	border: 2px solid rgb(0 106 255);
+	outline: none;
+	box-sizing: border-box;
+	box-shadow: 0px 0px 10px rgba(0, 106, 255, 0.638);
+	border-radius: 8px;
+	-webkit-transform: matrix(1, 0, 0, 1, 0, 0);
+	transform: matrix(1, 0, 0, 1, 0, 0);
+}
+input::placeholder {
+    color: #f8f8f84a; 
+    }
+
+a.enter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 24px;
+    width: 100%;
+    height: 48px;
+    background: #2E7AE5;
+    box-shadow: 0px 100px 80px rgba(18, 115, 229, 0.19), 0px 41.7776px 33.4221px rgba(18, 115, 229, 0.14), 0px 22.3363px 17.869px rgba(18, 115, 229, 0.12), 0px 12.5216px 10.0172px rgba(18, 115, 229, 0.1), 0px 6.6501px 5.32008px rgba(18, 115, 229, 0.08), 0px 2.76726px 2.21381px rgba(18, 115, 229, 0.05);
+    border-radius: 8px;
+    color: white;
+    flex: none;
+    order: 3;
+    align-self: stretch;
+    flex-grow: 0;
+    z-index: 3;
+    font-size: 14px;
+    margin-top: 8px;
+    text-decoration: none;
+    transition: .5s all;
+}
+a.enter:hover {
+    background-color: #143DCC;
+}
+  #myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+  }
+  
+  .content {
+    position: fixed;
+    bottom: 0;
+    background: #020d1dc7;
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+    height: 100%;
+  }
+ 
+  .mp4 {
+    filter: grayscale(1);
+  }
+
+  .password {
+	position: relative;
+    width: 100%;
+}
+.password-control {
+	position: absolute;
+    top: 14px;
+    right: 14px;
+    display: inline-block;
+    width: 21px;
+	height: 20px;
+	background: url(img/eye.svg) 0 0 no-repeat;
+    opacity: .6;
+}
+
+.password-control.view {
+    background: url(img/ceye.svg) 0 0 no-repeat;
+    opacity: .8;
+}
+

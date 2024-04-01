@@ -1,0 +1,151 @@
+.tooltip-inner {
+    border: 0.75px solid #BECAED;
+    background: rgba(222, 229, 247, 0.19);
+    color: #44498D;
+    font-size: 0.75rem;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+.tooltip.bs-tooltip-auto[x-placement^=left] .arrow::before, .tooltip.bs-tooltip-left .arrow::before {
+    right: 0;
+    margin-top: 6px;
+    content: "";
+    width: 6.5px;
+    height: 1px;
+    border:none;
+    background: #BECAED;
+}
+@keyframes radial-pulse {
+  0% {
+    box-shadow: 0 0 0 0px rgba(68, 73, 141, 0);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(68, 73, 141, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 6px rgba(68, 73, 141, 0);
+  }
+}
+@keyframes bounceInUp {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  from {
+    opacity: 0;
+    transform: translate3d(0, 3000px, 0);
+  }
+  60% {
+    opacity: 1;
+    transform: translate3d(0, -20px, 0);
+  }
+  75% {
+    transform: translate3d(0, 10px, 0);
+  }
+  90% {
+    transform: translate3d(0, -5px, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.obertka {
+  position: fixed;
+  bottom: 60px;
+  right: 32px;
+}
+a.buttons {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  color: #fff;
+  font-size: 2.6em;
+  padding: 1px 0 0 0;
+  text-align: center;
+  display: block;
+  margin: 15px auto 0;
+  position: relative;  
+  -webkit-transition: all .1s ease-out;
+  transition: all .1s ease-out;
+}
+a.buttons:active,
+a.buttons:focus,
+a.buttons:hover {
+  box-shadow: 0 0 4px rgba(70, 92, 125, 0.45), 0 4px 8px rgba(70, 92, 125, 0.45);
+  text-decoration: none;
+}
+a.buttons:not(:last-child) {
+  width: 45px;
+  height: 45px;
+  margin: 20px auto 0;
+  font-size: 1.6em;
+  padding-top: 4px;
+  -webkit-transform: translateY(50px);
+  -ms-transform: translateY(50px);
+  transform: translateY(50px);
+  visibility: hidden;
+}
+a.buttons.hovered:not(:last-child) {
+  visibility: visible;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+  margin: 12px auto 0;
+}
+a.buttons:nth-last-child(1) {
+  background: url(../img/smlogo.svg) no-repeat 50% 50%;
+  background-size: 24px;
+  background-color: #44498d;
+  animation: bounceInUp 1s, radial-pulse 1.5s 2s infinite;
+}
+
+a.buttons:not(:last-child):nth-last-child(2) {
+  -webkit-transition-delay: 50ms;
+  transition-delay: 20ms;
+  background: url(../img/icon/facebook-logo.svg) no-repeat 50% 50% #3b5998;
+  background-size: 20px;
+  /* Facebook color */
+}
+
+a.buttons:not(:last-child):nth-last-child(3) {
+  -webkit-transition-delay: 75ms;
+  transition-delay: 40ms;
+  background: url(../img/icon/telegram.svg) no-repeat 50% 50% #0088cc;
+  background-size: 20px;
+  /* Telegram color */
+}
+
+a.buttons:not(:last-child):nth-last-child(4) {
+  -webkit-transition-delay: 100ms;
+  transition-delay: 60ms;
+  background: url(../img/icon/gmail.svg) no-repeat 50% 50% #dd4b39;
+  background-size: 20px;
+  /* Google plus color */
+}
+
+a.buttons:not(:last-child):nth-last-child(5) {
+  -webkit-transition-delay: 125ms;
+  transition-delay: 80ms;
+  background: url(../img/icon/vk-social-network-logo.svg) no-repeat 50% 50% #4a76a8;
+  background-size: 20px;
+  /* Vkontakte color */
+}
+
+a.buttons:not(:last-child):nth-last-child(6) {
+  -webkit-transition-delay: 150ms;
+  transition-delay: 100ms;
+  background: url(../img/icon/skype-logo.svg) no-repeat 50% 50% #00aff0;
+  background-size: 20px;
+  /* Skype color */
+}
+
+a.buttons:not(:last-child):nth-last-child(7) {
+  -webkit-transition-delay: 175ms;
+  transition-delay: 120ms;
+  background: url(../img/icon/whatsapp.svg) no-repeat 50% 50% #4CAF50;
+  background-size: 20px;
+  /* Whatsapp color */
+}

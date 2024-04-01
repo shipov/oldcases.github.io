@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<video class="mp4" autoplay muted loop id="myVideo">
+  <source src="wow.mp4" type="video/mp4">
+</video>
+
+<div class="auth">
+    <img class="logo" src="logo.svg" width="112px">
+    <p>Авторизация</p>
+    <input type="text" placeholder="Имя">
+    
+
+    <div class="password">
+        <input type="password" class="password" id="password-input" placeholder="Введите пароль" name="password">
+        <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
+    </div>
+
+
+
+
+    <a href="#" class="enter">Войти</a>
+    <p class="uppass">Восстановление пароля</p>
+</div>
+
+<div class="content">
+ 
+</div>
+
+
+
+</body>
+<script>
+    function show_hide_password(target){
+	var input = document.getElementById('password-input');
+	if (input.getAttribute('type') == 'password') {
+		target.classList.add('view');
+		input.setAttribute('type', 'text');
+	} else {
+		target.classList.remove('view');
+		input.setAttribute('type', 'password');
+	}
+	return false;
+}
+</script>
+</html>
